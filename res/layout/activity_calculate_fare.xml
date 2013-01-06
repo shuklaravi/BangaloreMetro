@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="40dip">
+ <TableLayout android:layout_width="wrap_content"
+     android:layout_height="wrap_content" >
+  <TableRow>
+   <TextView
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:text="@string/sourceStart"
+      android:layout_marginRight="20dip"
+      android:textSize="24.5sp" />
+   <Spinner
+    android:id="@+id/stations_spinner"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="35dip" />
+   </TableRow> 
+  <TableRow> 
+   <TextView
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:text="@string/destinationStart"
+      android:textSize="24.5sp"
+      android:layout_marginRight="20dip"/>
+ <Spinner
+    android:id="@+id/stations1_spinner"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="30dip"/>
+ </TableRow>
+ <Button
+      android:id="@+id/fareBegin_button"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:text="@string/fareBegin"
+      android:textSize="22sp" />
+ </TableLayout>
+</ScrollView>
+
+

@@ -1,0 +1,34 @@
+<resources>
+
+    <string name="app_name">Bangalore Metro</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main">Bangalore Metro</string>
+    <string name="title_activity_calculate_fare">Calculate Fare</string>
+    <string name="menuHeader">$Bangalore Metro$</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menuCalculateFare">Calculate Fare</string>
+    <string name="menuViewMap">View Map</string>
+    <string name="menuExit">Exit</string>
+    <string name="menuNone">None</string>
+    <string name="calculatefare_begin">Calculating fare from Map</string>
+    <string name="calculatefare_start">start!</string>
+
+
+<string name="sourceStart">FROM</string>
+    <string name="destinationStart">TO</string>
+    <string name="currentSearch">Place</string>
+    <string-array name="str2">
+                <item>Baiyyappanahalli</item>
+                <item>Swami Vivekananda Road</item>
+                <item>Indira Nagar</item>
+                <item>Halasuru</item>
+                <item>Trinity Circle</item>
+                <item>M.G Road</item>
+                </string-array>
+	<string name="fareBegin">Calculate Fare</string>      
+    
+
+    <string name="title_activity_view_map">ViewMapActivity</string>
+
+
+</resources>
