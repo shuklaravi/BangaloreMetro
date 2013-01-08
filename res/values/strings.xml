@@ -25,10 +25,15 @@
                 <item>Trinity Circle</item>
                 <item>M.G Road</item>
                 </string-array>
-	<string name="fareBegin">Calculate Fare</string>      
+	<string name="fareBeginToken">Fare for TOKEN users</string>      
+    <string name="fareBeginVarshik">Fare for VARSHIK users</string>
+	
+    <string name="varshikUserFare_begin">VARSHIK FARE:</string>
+    <string name="tokenUserFare_begin">TOKEN FARE:</string>
     
-
     <string name="title_activity_view_map">ViewMapActivity</string>
+    <string name="title_varshik_user_fare">ViewVarshikUserActivity</string>
+    <string name="title_token_user_fare">ViewTokenUserActivity</string>    
 
 
 </resources>

@@ -24,7 +24,18 @@
             android:name=".CalculateFareActivity"
             android:label="@string/title_activity_calculate_fare" >
             <intent-filter>
-
+            </intent-filter>
+        </activity>
+        <activity            
+            android:name=".TokenUser"
+            android:label="@string/title_token_user_fare" >
+            <intent-filter>
+            </intent-filter>
+        </activity>
+        <activity            
+            android:name=".VarshikUser"
+            android:label="@string/title_varshik_user_fare" >
+            <intent-filter>
             </intent-filter>
         </activity>
     </application>
