@@ -145,7 +145,11 @@ public  class CalculateFareActivity extends Activity  {
 					break;
 				}			
 			}
+<<<<<<< HEAD
 		};*/
+=======
+		};
+>>>>>>> a11997d36de8a5d8cc6e3762f5d4d3e461033c97
 		
 
 	}
