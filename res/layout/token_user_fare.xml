@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="40dip">
-    <Textview
+    <TextView
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:text="@string/varshikUserFare_begin"
@@ -12,3 +12,5 @@
       android:textSize="24.5sp" />
     
 </ScrollView>    
+
+

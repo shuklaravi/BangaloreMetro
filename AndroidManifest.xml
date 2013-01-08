@@ -22,21 +22,24 @@
         </activity>
         <activity            
             android:name=".CalculateFareActivity"
-            android:label="@string/title_activity_calculate_fare" >
+            android:label="@string/title_activity_calculate_fare" 
+            android:theme="@android:style/Theme.Dialog">
             <intent-filter>
-            </intent-filter>
-        </activity>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>    
+         </activity>
         <activity            
             android:name=".TokenUser"
-            android:label="@string/title_token_user_fare" >
-            <intent-filter>
-            </intent-filter>
+            android:label="@string/title_token_user_fare" 
+            android:theme="@android:style/Theme.Dialog">
         </activity>
         <activity            
             android:name=".VarshikUser"
-            android:label="@string/title_varshik_user_fare" >
-            <intent-filter>
-            </intent-filter>
+            android:label="@string/title_varshik_user_fare" 
+            android:theme="@android:style/Theme.Dialog">
+            
         </activity>
     </application>
 

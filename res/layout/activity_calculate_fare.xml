@@ -12,7 +12,7 @@
       android:layout_width="wrap_content"
       android:text="@string/sourceStart"
       android:layout_marginRight="20dip"
-      android:textSize="24.5sp" />
+      android:textSize="20sp" />
    <Spinner
     android:id="@+id/source_spinner"
     android:layout_width="fill_parent"
@@ -24,7 +24,7 @@
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:text="@string/destinationStart"
-      android:textSize="24.5sp"
+      android:textSize="20sp"
       android:layout_marginRight="20dip"/>
  <Spinner
     android:id="@+id/destination_spinner"
@@ -37,14 +37,14 @@
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:text="@string/fareBeginToken"
-      android:textSize="22sp"
-      android:layout_marginBottom="30dip" />
+      android:textSize="15sp"
+      android:layout_marginBottom="20dip" />
  <Button
       android:id="@+id/fareBeginVarshik_button"
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:text="@string/fareBeginVarshik"
-      android:textSize="22sp" />
+      android:textSize="15sp" />
  </TableLayout>
 </ScrollView>
 

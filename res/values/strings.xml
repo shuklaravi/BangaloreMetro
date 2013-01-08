@@ -4,7 +4,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">Bangalore Metro</string>
     <string name="title_activity_calculate_fare">Calculate Fare</string>
-    <string name="menuHeader">$Bangalore Metro$</string>
+    <string name="menuHeader">Bangalore Metro</string>
     <string name="menu_settings">Settings</string>
     <string name="menuCalculateFare">Calculate Fare</string>
     <string name="menuViewMap">View Map</string>
@@ -14,10 +14,10 @@
     <string name="calculatefare_start">start!</string>
 
 
-<string name="sourceStart">FROM</string>
+	<string name="sourceStart">FROM</string>
     <string name="destinationStart">TO</string>
     <string name="currentSearch">Place</string>
-    <string-array name="str2">
+    <string-array name="stationName">
                 <item>Baiyyappanahalli</item>
                 <item>Swami Vivekananda Road</item>
                 <item>Indira Nagar</item>
