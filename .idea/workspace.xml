@@ -14,11 +14,7 @@
     <option name="historyRevisionsNumber" value="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c362f5f-8791-4e26-8902-c02158eeea55" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/constants/StationConstants.java" afterPath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/constants/StationConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/utils/MetroMapData.java" afterPath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/utils/MetroMapData.java" />
-    </list>
+    <list default="true" id="3c362f5f-8791-4e26-8902-c02158eeea55" name="Default" comment="" />
     <ignored path="BangaloreMetro.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
