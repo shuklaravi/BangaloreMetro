@@ -125,42 +125,5 @@ public  class CalculateFareActivity extends Activity  {
 			int count=Math.abs(destinationKey-sourceKey)+1;
 			return adjMatrix[1][count];
 		}
-		
-		
-/*
-	OnClickListener mainMenuClickListener = new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				switch(v.getId()){
-				
-				case R.id.fareBeginToken_button:
-					Intent intent = new Intent(CalculateFareActivity.this,TokenUser.class);
-					startActivity(intent);					
-					break;
-				case R.id.fareBeginVarshik_button:
-					Intent intent1 = new Intent(CalculateFareActivity.this,VarshikUser.class);
-					startActivity(intent1);
-					break;
-				}			
-			}
-<<<<<<< HEAD
-		};*/
-=======
-		};
->>>>>>> a11997d36de8a5d8cc6e3762f5d4d3e461033c97
-		
 
 	}
-
-
-/*
-LinearLayout lView = new LinearLayout(this);
-
-myText = new TextView(this);
-myText.setText("My Text");
-
-lView.addView(myText);
-
-setContentView(lView);*/
