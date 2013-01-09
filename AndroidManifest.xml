@@ -30,17 +30,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>    
          </activity>
-        <activity            
-            android:name=".TokenUser"
-            android:label="@string/title_token_user_fare" 
-            android:theme="@android:style/Theme.Dialog">
+         <activity            
+            android:name="com.vacuumhead.bangalore.TokenAdjacencyMatrix"
+            android:label="@string/title_token_user_fare"   
+            android:theme="@android:style/Theme.Dialog"
+            android:textSize="40sp">
         </activity>
         <activity            
-            android:name=".VarshikUser"
-            android:label="@string/title_varshik_user_fare" 
-            android:theme="@android:style/Theme.Dialog">
-            
-        </activity>
+            android:name="com.vacuumhead.bangalore.VarshikAdjacencyMatrix"
+            android:label="@string/title_varshik_user_fare"   
+            android:theme="@android:style/Theme.Dialog"
+            android:textSize="40sp">
+         </activity>   
     </application>
 
 </manifest>

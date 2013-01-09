@@ -16,7 +16,6 @@ import android.widget.Button;
 public class MainActivity extends Activity {
 
 	final public String mapDataFile = "mapData";
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		

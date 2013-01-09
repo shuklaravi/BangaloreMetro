@@ -1,0 +1,62 @@
+package com.vacuumhead.bangalore;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class VarshikAdjacencyMatrix extends Activity {
+	public static final String Source="Source";
+	public static final String Dest="Destination";
+	private double fare=0;
+	TextView V;
+	@Override
+	protected void onCreate(Bundle saved)
+	{
+		super.onCreate(saved);
+		//Log.d(TAG,"onCreate");
+		Bundle extras=getIntent().getExtras();
+		String s=extras.getString(Source);
+		String d=extras.getString(Dest);
+		fare=func(s,d);
+		LinearLayout lView = new LinearLayout(this);
+		V = new TextView(this);
+		V.setTextSize(25);
+		V.setText("Fare for Varshik Users is: ₹"+fare);
+		lView.addView(V);
+		setContentView(lView);
+	}
+	
+	
+	private double func(String sourceStation, String destinationStation)
+	{
+		Map<String, Integer> map=new HashMap<String, Integer>();
+		double[][] adjMatrix =new double[100][100];
+		
+		map.put("Baiyyappanahalli",0);
+		map.put("Swami Vivekananda Road",1);
+		map.put("Indira Nagar",2);
+		map.put("Halasuru",3);
+		map.put("Trinity Circle",4);
+		map.put("M.G Road",5);
+		
+		
+		adjMatrix[0][0]=8.5;
+		adjMatrix[0][1]=8.5;
+		adjMatrix[0][2]=10.20;
+		adjMatrix[0][3]=10.20;
+		adjMatrix[0][4]=11.90;
+		adjMatrix[0][5]=12.75;
+		
+		int sourceKey=(Integer)map.get(sourceStation);
+		int destinationKey=(Integer)map.get(destinationStation);
+				
+		int count=Math.abs(destinationKey-sourceKey);
+		return adjMatrix[0][count];
+	}
+	
+
+}
