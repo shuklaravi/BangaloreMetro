@@ -19,7 +19,7 @@ public class TokenUser extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
-	setContentView(R.layout.token_user_fare);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.token_user_fare);
 	}
 }
