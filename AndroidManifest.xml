@@ -44,10 +44,9 @@
          </activity>
          <activity            
             android:name="com.vacuumhead.bangalore.ViewMapActivity"
-            android:label="@string/title_activity_view_menu"
-            android:theme="@android:style/Theme.Dialog" 
+            android:label="@string/title_activity_view_menu" 
             android:textSize="40sp">
-         </activity>      
+         </activity>
     </application>
 
 </manifest>

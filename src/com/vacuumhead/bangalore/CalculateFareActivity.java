@@ -114,16 +114,8 @@ public  class CalculateFareActivity extends Activity  {
 					break;
 				}			
 			}
-	};		
-	/*private void openFareDialog() {
-		new AlertDialog.Builder(this).setTitle(R.string.calculatefare_begin).setItems(R.array.fare,
-							new DialogInterface.OnClickListener(){
-					public void onClick(DialogInterface dialoginterface,int i){startTokenFare(i);}
-			
-		}).show();
-		
-		
-	}*/
+	};	
+	
 	Bundle bundle=new Bundle();
 	private void startTokenFare()
 	{
@@ -144,4 +136,4 @@ public  class CalculateFareActivity extends Activity  {
 	  startActivityForResult(intent, 0);
 	}
 	
-}	
+}
