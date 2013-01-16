@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class VarshikAdjacencyMatrix extends Activity {
 	public static final String Source="Source";
@@ -25,9 +26,10 @@ public class VarshikAdjacencyMatrix extends Activity {
 		LinearLayout lView = new LinearLayout(this);
 		V = new TextView(this);
 		V.setTextSize(25);
-		V.setText("Fare for Varshik Users is: ₹"+fare);
+		V.setText("Fare for Varshik Users is:\n\t\t\t₹"+fare);
 		lView.addView(V);
 		setContentView(lView);
+		Toast.makeText(getBaseContext(), "Source!  "+ s+"\nDest!  "+d, Toast.LENGTH_SHORT).show();
 	}
 	
 	

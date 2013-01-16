@@ -1,13 +1,9 @@
 package com.vacuumhead.bangalore;
 
 
-import com.vacuumhead.bangalore.constants.StationConstants;
-import com.vacuumhead.bangalore.utils.MetroMapData;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,10 +19,10 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		Button calculateFareButton = (Button) findViewById(R.id.calculateFareButton);
 		Button exitButton = (Button) findViewById(R.id.applicationExitButton);
-			
+		Button viewMapButton = (Button) findViewById(R.id.viewMapButton);	
 		calculateFareButton.setOnClickListener(mainMenuClickListener);		
 		exitButton.setOnClickListener(mainMenuClickListener);
-		
+		viewMapButton.setOnClickListener(mainMenuClickListener);
 		
 	
 	}
@@ -42,6 +38,10 @@ public class MainActivity extends Activity {
 				Intent intent = new Intent(MainActivity.this, CalculateFareActivity.class);
 				startActivity(intent);
 				break;
+			case R.id.viewMapButton:
+				Intent intent1 = new Intent(MainActivity.this, ViewMapActivity.class);
+				startActivity(intent1);
+				break;	
 			case R.id.applicationExitButton:
 				finish();
 				break;
