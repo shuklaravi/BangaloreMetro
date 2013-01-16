@@ -7,10 +7,4 @@
     android:id="@+id/linearLayout"
     android:background="@drawable/metro_route"> 
 
-  
-    <TextView android:id="@+id/text"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Hello, World!" />
-
 </LinearLayout>
