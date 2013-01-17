@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/background"
+    android:background="@drawable/m2"
     android:gravity="center_horizontal|fill_horizontal"
     android:padding="10dip" >
 
@@ -11,76 +11,36 @@
         android:orientation="vertical" 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
-
-    <TextView
-        android:id="@+id/mainMenuTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="25dip"
-        android:layout_marginRight="10dip"
-        android:text="@string/menuHeader"
-        android:textSize="26sp" />
-        
-<TableLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal|fill_horizontal"
-    android:duplicateParentState="false"
-    android:gravity="center_horizontal|fill_horizontal"
-    android:longClickable="false"
-    android:orientation="horizontal"
-    android:stretchColumns="0,1" >
-
-  <TableRow>
+        android:layout_marginBottom="30dp" >
+   
 
 	<Button
 	    android:id="@+id/calculateFareButton"
-	    android:text="@string/menuCalculateFare"
-	    android:textSize="20.0sp" />
+	    android:background="@drawable/fare"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginBottom="20dp"/>
 
-	<Button
+		<Button
 	    android:id="@+id/viewMapButton"
-	    android:layout_marginBottom="25dip"
-	    android:text="@string/menuViewMap"
-	    android:textSize="20.0sp" />
-
-   </TableRow>
-   <TableRow>
-
-	<Button
-	    android:text="@string/menuNone"
-	    android:textSize="20.0sp" />
-
-	<Button
-	    android:layout_marginBottom="25dip"
-	    android:text="@string/menuNone"
-	    android:textSize="20.0sp" />
-
-   </TableRow>
-  <TableRow>
+	    android:background="@drawable/map"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginBottom="20dp"/>
+		
+		<Button
+	    android:id="@+id/about"
+	    android:background="@drawable/about"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginBottom="20dp"/>	
 
 	<Button
-	    android:text="@string/menuNone"
-	    android:textSize="20.0sp" />
-
-	<Button
-	    android:layout_marginBottom="25dip"
-	    android:text="@string/menuNone"
-	    android:textSize="20.0sp" />
-
-   </TableRow>
-
-<Button
     android:id="@+id/applicationExitButton"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/menuExit"
-    android:textSize="24.5sp" />
-
-</TableLayout>    
-    
-    
+    android:background="@drawable/exit"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+ 
   </LinearLayout>    
 </LinearLayout>
