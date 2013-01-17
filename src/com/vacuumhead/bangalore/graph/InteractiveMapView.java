@@ -20,70 +20,45 @@ public class InteractiveMapView extends View {
 	private static float MIN_ZOOM = 1f;
 	private static float MAX_ZOOM = 5f;
 	private float scaleFactor = 1.f;
-	List<Rect> stations = null;
 	
 	public InteractiveMapView(Context context) {
 		super(context);
 		scaleGestureDetector = new ScaleGestureDetector(getContext(),
 				new ScaleListener());
 		
-		stations.add(new Rect(0, 0, 50, 100));
-		stations.add(new Rect(80, 120, 100, 150));
 	}
 	
 	public InteractiveMapView(Context context, AttributeSet attrs) {
 		super( context, attrs );
-		
-		stations.add(new Rect(0, 0, 50, 100));
-		stations.add(new Rect(80, 120, 100, 150));
+		scaleGestureDetector = new ScaleGestureDetector(getContext(),
+				new ScaleListener());
 	}
 	
 	public InteractiveMapView(Context context, AttributeSet attrs, int defStyle) {
 		super( context, attrs, defStyle );
-		
-		stations.add(new Rect(0, 0, 50, 100));
-		stations.add(new Rect(80, 120, 100, 150));
+		scaleGestureDetector = new ScaleGestureDetector(getContext(),
+				new ScaleListener());
 	}
+	
+	@Override
+    public boolean onTouchEvent(MotionEvent event) {
+		scaleGestureDetector.onTouchEvent(event);
+        return true;
+    }
 	
 	@Override
 	public void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		
-		
+		canvas.save();
+        canvas.scale(scaleFactor, scaleFactor);
+        
 		Paint station = new Paint();
 		station.setColor(Color.YELLOW);
-		canvas.drawRect(stations.get(0), station);
-		
-	
-		
-		station.setColor(Color.BLUE);
-		canvas.drawRect(stations.get(1), station);
+		canvas.drawRect(0, 0, 50, 100, station);
 		
 		
-		
-	}
-
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		
-		int touchX = (int) event.getX();
-		int touchY = (int) event.getY();
-		
-		switch(event.getAction())
-		{
-			case MotionEvent.ACTION_DOWN:
-				for (Rect station : stations) 
-				{
-	                if(station.contains(touchX,touchY)) 
-	                {
-	                	
-	                }
-				}
-				break;
-		}
-		
-		return true;
-		
+		canvas.restore();
 	}
 
 	private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
