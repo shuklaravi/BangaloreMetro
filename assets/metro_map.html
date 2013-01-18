@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+	<script language="JavaScript">
+		function callJS(arg) {
+			var itemSelected = 0;
+			for(var i = 0; i < document.getElementsByTagName('circle').length; i++) {
+				if(document.getElementsByTagName('circle')[i].getAttribute('selected') == 'true') {
+					itemSelected++;
+				}
+			}
+			if(itemSelected == 0) {
+				window.android.callAndroid("Source station set as " + arg.id);
+				document.getElementById(arg.id).setAttribute('selected', 'true');				
+			} else if(itemSelected == 1) {
+				window.android.callAndroid("Destination station set as " + arg.id);
+				document.getElementById(arg.id).setAttribute('selected', 'true');
+			}
+			else {
+				window.android.callAndroid("Handle multiple stations");
+			}
+		}
+	</script>
+</head>
+<html>
+<body>
+
+<h1>My first SVG</h1>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <circle onClick="callJS(this)" id="stationA" selected="false" cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+   <circle onClick="callJS(this)" id="stationB"selected="false" cx="200" cy="150" r="40" stroke="black" stroke-width="2" fill="green" />
+   <circle onClick="callJS(this)" id="stationC"selected="false" cx="300" cy="250" r="40" stroke="black" stroke-width="2" fill="yellow" />
+</svg> 
+ 
+</body>
+</html>
+
