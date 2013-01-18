@@ -3,44 +3,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/m2"
     android:gravity="center_horizontal|fill_horizontal"
     android:padding="10dip" >
 
     <LinearLayout
         android:orientation="vertical" 
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="30dp" >
+        android:layout_height="fill_parent">
    
-
+     <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:src="@drawable/m213"
+        android:layout_marginTop="5dp" />
+        
+   <TableLayout
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content" >
+       
+    <TableRow>
+    <Button
+        android:id="@+id/calculateFareButton"
+	    android:background="@drawable/faref"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginRight="1dp"/>
+        
 	<Button
 	    android:id="@+id/calculateFareButton"
-	    android:background="@drawable/fare"
+	    android:background="@drawable/fare1"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_marginBottom="20dp"/>
-
+    </TableRow>
+    <TableRow>
+        <Button
+		android:id="@+id/viewMapButton"            
+	    android:background="@drawable/mapm"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginRight="1dp"/>
+        
 		<Button
 	    android:id="@+id/viewMapButton"
-	    android:background="@drawable/map"
+	    android:background="@drawable/map1"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
 	    android:layout_marginBottom="20dp"/>
-		
-		<Button
-	    android:id="@+id/about"
-	    android:background="@drawable/about"
+	</TableRow>
+	<TableRow>
+	  <Button
+	    android:id="@+id/about"  
+	    android:background="@drawable/abouta"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:layout_marginBottom="20dp"/>	
-
+	    android:layout_marginRight="1dp"/>
+          	
+		<Button
+	    android:id="@+id/about"
+	    android:background="@drawable/about1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginBottom="20dp"/>
+	</TableRow>		
+   <TableRow>
+       <Button
+        android:id="@+id/applicationExitButton"   
+	    android:background="@drawable/exitx"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginRight="1dp"/>
 	<Button
     android:id="@+id/applicationExitButton"
-    android:background="@drawable/exit"
+    android:background="@drawable/exit1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"/>
- 
-  </LinearLayout>    
+	</TableRow>
+ </TableLayout>
+ </LinearLayout>    
 </LinearLayout>
