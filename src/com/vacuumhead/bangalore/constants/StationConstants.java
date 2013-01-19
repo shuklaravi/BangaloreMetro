@@ -3,18 +3,18 @@ package com.vacuumhead.bangalore.constants;
 public class StationConstants {
 
 	public static enum greenLineStationList {
-		Nagasandra, Dasarahalli, Jalahalli, Peenya_Industry, Peenya, Yeshwanthpur_Industry, Yeshwanthpur, 
-		Sandal_Soap_Factory, Mahalakshmi, Rajajinagar, Kuvempu_Road, Srirampura, Sampige_Road, Kempegowda, 
-		Chickpete, Krishna_Rajendra_Market, National_College, Lalbagh, South_End_Circle, Jayanagar, 
-		Rashtreeya_Vidyalaya_Road, Banashankari, Jaya_Prakash_Nagar, Puttenahalli
+//		Nagasandra, Dasarahalli, Jalahalli, Peenya_Industry, Peenya, Yeshwanthpur_Industry, Yeshwanthpur, 
+//		Sandal_Soap_Factory, Mahalakshmi, Rajajinagar, Kuvempu_Road, Srirampura, Sampige_Road, Kempegowda, 
+//		Chickpete, Krishna_Rajendra_Market, National_College, Lalbagh, South_End_Circle, Jayanagar, 
+//		Rashtreeya_Vidyalaya_Road, Banashankari, Jaya_Prakash_Nagar, Puttenahalli
 	}
 	
 
 	public static enum purpleLineStationList {
-		Baiyappanahalli, Swami_Vivekananda_Road, Indiranagar, Halasuru, Trinity, Mahatma_Gandhi_Road, 
-		Cubbon_Park, Vidhana_Soudha, Sir_M_Visveshwaraya, Kempegowda, City_Railway_Station, Magadi_Road, 
-		Hosahalli, Vijayanagar, Attiguppe, Deepanjali_Nagar, Mysore_Road
-	}
+		Baiyappanahalli, Swami_Vivekananda_Road, Indiranagar, Halasuru, Trinity_Circle, Mahatma_Gandhi_Road
+		//, Cubbon_Park, Vidhana_Soudha, Sir_M_Visveshwaraya, Kempegowda, City_Railway_Station, Magadi_Road, 
+		//Hosahalli, Vijayanagar, Attiguppe, Deepanjali_Nagar, Mysore_Road
+	}	
 
 	public static int getStationCode(String stationName) {
 

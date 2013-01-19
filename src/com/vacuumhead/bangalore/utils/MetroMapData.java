@@ -1,45 +1,48 @@
 package com.vacuumhead.bangalore.utils;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.vacuumhead.bangalore.constants.StationConstants;
+import com.vacuumhead.bangalore.constants.UserConstants;
 
 public class MetroMapData {
-
-	private String greenLineStationGroup = "greenLineStationList";
-	private String purpleLineStationGroup = "purpleLinestationList";
 	
-	public int getFareBetweenStations(int fromStation, int toStation) {
+	public static double[][] tokenPurple = {
+		{0.00, 10.00, 12.00, 12.00, 14.00, 15.00},
+		{10.00, 0.00, 10.00, 12.00, 12.00, 14.00},
+		{12.00, 10.00, 0.00, 10.00, 12.00, 12.00},
+		{12.00, 12.00, 10.00, 0.00, 10.00, 12.00},
+		{14.00, 12.00, 12.00, 10.00, 0.00, 10.00},
+		{15.00, 14.00, 12.00, 12.00, 10.00, 0.00}
+	};
+	
+	public static double[][] varshikPurple = {
+		{0.00, 8.50, 10.20, 10.20, 11.90, 12.75},
+		{8.50, 0.00, 8.50, 10.20, 10.20, 11.90},
+		{10.20, 8.50, 0.00, 8.50, 10.20, 10.20},
+		{10.20, 10.20, 8.50, 0.00, 8.50, 10.20},
+		{11.90, 10.20, 10.20, 8.50, 0.00, 8.50},
+		{12.75, 11.90, 10.20, 10.20, 8.50, 0.00}
+	};
+	
+	public static Map<String, Double> getFareBetweenStations(int fromStation, int toStation) {
+		Map<String, Double> map = new HashMap<String, Double>();
+		map.put(UserConstants.tokenUser, getTokenFareBetweenStations(fromStation, toStation));
+		map.put(UserConstants.varshikUser, getVarshikFareBetweenStations(fromStation, toStation));
 		
-		return -1;
+		return map;
+		
 	}
 	
-	private double[][] createTokenUserAdjacencyMatrix() {
-		int totalNumberOfStation = StationConstants.purpleLineStationList.values().length + 
-				StationConstants.greenLineStationList.values().length;		
-				
-		double[][] tokenUser = {
-			{0.00, 10.00, 12.00, 12.00, 14.00, 15.00},
-			{10.00, 0.00, 10.00, 12.00, 12.00, 14.00},
-			{12.00, 10.00, 0.00, 10.00, 12.00, 12.00},
-			{12.00, 12.00, 10.00, 0.00, 10.00, 12.00},
-			{14.00, 12.00, 12.00, 10.00, 0.00, 10.00},
-			{15.00, 14.00, 12.00, 12.00, 10.00, 0.00}
-		};
-		return tokenUser;
+	public static double getVarshikFareBetweenStations(int fromStation, int toStation) {
+		
+		return varshikPurple[fromStation][toStation];
 	}
 	
-	private double[][] createVarshikUserAdjacencyMatrix() {
-		int totalNumberOfStation = StationConstants.purpleLineStationList.values().length + 
-				StationConstants.greenLineStationList.values().length;		
-				
-		double[][] varshikUser = {
-			{0.00, 8.50, 10.20, 10.20, 11.90, 12.75},
-			{8.50, 0.00, 8.50, 10.20, 10.20, 11.90},
-			{10.20, 8.50, 0.00, 8.50, 10.20, 10.20},
-			{10.20, 10.20, 8.50, 0.00, 8.50, 10.20},
-			{11.90, 10.20, 10.20, 8.50, 0.00, 8.50},
-			{12.75, 11.90, 10.20, 10.20, 8.50, 0.00}
-		};
-		return varshikUser;
+	public static double getTokenFareBetweenStations(int fromStation, int toStation) {
+	
+		return tokenPurple[fromStation][toStation];
 	}
 	
 	public String[] getStationList() {		

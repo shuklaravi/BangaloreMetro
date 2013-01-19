@@ -19,15 +19,15 @@
     <string name="destinationStart">TO</string>
     <string name="currentSearch">Place</string>
     <string-array name="stationName">
-                <item>Baiyyappanahalli</item>
-                <item>Swami Vivekananda Road</item>
-                <item>Indira Nagar</item>
+                <item>Baiyappanahalli</item>
+                <item>Swami_Vivekananda_Road</item>
+                <item>Indiranagar</item>
                 <item>Halasuru</item>
-                <item>Trinity Circle</item>
-                <item>M.G Road</item>
+                <item>Trinity_Circle</item>
+                <item>Mahatma_Gandhi_Road</item>
                 </string-array>
 <string-array name="fare">
-                <item>Fare TOken</item>
+                <item>Fare Token</item>
                 <item>FAre Var</item>
                 </string-array>                
 	<string name="fareBeginToken">Fare for TOKEN users</string>      

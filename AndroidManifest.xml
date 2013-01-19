@@ -31,13 +31,13 @@
             </intent-filter>    
          </activity>
          <activity            
-            android:name="com.vacuumhead.bangalore.TokenAdjacencyMatrix"
+            android:name=".TokenUserFareActivity"
             android:label="@string/title_token_user_fare"   
             android:theme="@android:style/Theme.Dialog"
             android:textSize="40sp">
         </activity>
         <activity            
-            android:name="com.vacuumhead.bangalore.VarshikAdjacencyMatrix"
+            android:name=".VarshikUserFareActivity"
             android:label="@string/title_varshik_user_fare"   
             android:theme="@android:style/Theme.Dialog"
             android:textSize="40sp">

@@ -120,18 +120,18 @@ public  class CalculateFareActivity extends Activity  {
 	private void startTokenFare()
 	{
 	 
-	  Intent intent=new Intent(CalculateFareActivity.this,TokenAdjacencyMatrix.class);
-	  bundle.putString(TokenAdjacencyMatrix.Source,source);
-	  bundle.putString(TokenAdjacencyMatrix.Dest,dest);
+	  Intent intent=new Intent(CalculateFareActivity.this,TokenUserFareActivity.class);
+	  bundle.putString(TokenUserFareActivity.Source,source);
+	  bundle.putString(TokenUserFareActivity.Dest,dest);
 	  intent.putExtras(bundle);
 	  startActivityForResult(intent, 0);
 	}
 	private void startVarshikFare()
 	{
 	 
-	  Intent intent=new Intent(CalculateFareActivity.this,VarshikAdjacencyMatrix.class);
-	  bundle.putString(VarshikAdjacencyMatrix.Source,source);
-	  bundle.putString(VarshikAdjacencyMatrix.Dest,dest);
+	  Intent intent=new Intent(CalculateFareActivity.this,VarshikUserFareActivity.class);
+	  bundle.putString(VarshikUserFareActivity.Source,source);
+	  bundle.putString(VarshikUserFareActivity.Dest,dest);
 	  intent.putExtras(bundle);
 	  startActivityForResult(intent, 0);
 	}

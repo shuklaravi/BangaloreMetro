@@ -1,6 +1,9 @@
 package com.vacuumhead.bangalore;
 
 
+import com.vacuumhead.bangalore.constants.StationConstants;
+import com.vacuumhead.bangalore.utils.MetroMapData;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -30,7 +33,7 @@ public class ViewMapActivity extends Activity {
 		
 		webView.getSettings().setJavaScriptEnabled(true);
 		webView.addJavascriptInterface(new AndroidBridge(), "android");
-		webView.loadUrl("file:///android_asset/metro_map.html");
+		webView.loadUrl("file:///android_asset/svgg.html");
 		
 		webView.getSettings().setBuiltInZoomControls(true);		
 
@@ -43,13 +46,36 @@ public class ViewMapActivity extends Activity {
 	}
 	
 	public class AndroidBridge {
-		public void callAndroid(final String msg) {
+		
+		public void getRouteDetails(final String from, final String to) {
+			handler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					int fromId = StationConstants.getStationCode(from);
+					int toId = StationConstants.getStationCode(to);
+					
+					Toast.makeText(getBaseContext(), 
+			    			"Fare from " + from + " to " + to + "is \r\n" +
+			    					"1) Token User: Rs. " + 
+			    					MetroMapData.getTokenFareBetweenStations
+			    						(fromId, toId) + " \r\n" +
+			    					"2) Varshik User: Rs. " +
+			    					MetroMapData.getVarshikFareBetweenStations
+			    						(fromId, toId),
+			    			Toast.LENGTH_SHORT).show();
+					
+				}
+				
+			});
+		}
+		public void setSourceStation(final String from) {
 			handler.post(new Runnable() {
 
 				@Override
 				public void run() {
 					Toast.makeText(getBaseContext(), 
-			    			msg,
+			    			"Source station set as " + from,
 			    			Toast.LENGTH_SHORT).show();					
 				}
 				

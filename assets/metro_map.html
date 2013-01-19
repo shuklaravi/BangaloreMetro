@@ -3,16 +3,22 @@
 	<script language="JavaScript">
 		function callJS(arg) {
 			var itemSelected = 0;
+			var fromStationId;
+			
 			for(var i = 0; i < document.getElementsByTagName('circle').length; i++) {
 				if(document.getElementsByTagName('circle')[i].getAttribute('selected') == 'true') {
 					itemSelected++;
+					fromStationId = document.getElementsByTagName('circle')[i].getAttribute('id');
 				}
 			}
 			if(itemSelected == 0) {
-				window.android.callAndroid("Source station set as " + arg.id);
+			
+				window.android.setSourceStation(arg.id);
 				document.getElementById(arg.id).setAttribute('selected', 'true');				
+			
 			} else if(itemSelected == 1) {
-				window.android.callAndroid("Destination station set as " + arg.id);
+				
+				window.android.getRouteDetails(fromStationId, arg.id);
 				document.getElementById(arg.id).setAttribute('selected', 'true');
 			}
 			else {
