@@ -32,7 +32,7 @@ public class TokenUserFareActivity extends Activity {
 		LinearLayout lView = new LinearLayout(this);
 		V = new TextView(this);
 		V.setTextSize(25);
-		V.setText("Fare for Token Users is:\n\t\t\tâ‚¹"+fare);
+		V.setText("Fare for Token Users is:\n\t\t\tâ Rs. "+fare);
 		lView.addView(V);
 		setContentView(lView);
 		 Toast.makeText(getBaseContext(), "Source!  "+ s+"\nDest!  "+d, Toast.LENGTH_SHORT).show();

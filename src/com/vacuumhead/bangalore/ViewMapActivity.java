@@ -11,6 +11,7 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.WebSettings.ZoomDensity;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,10 +34,10 @@ public class ViewMapActivity extends Activity {
 		
 		webView.getSettings().setJavaScriptEnabled(true);
 		webView.addJavascriptInterface(new AndroidBridge(), "android");
-		webView.loadUrl("file:///android_asset/svgg.html");
+		webView.loadUrl("file:///android_asset/metro_map.html");
 		
 		webView.getSettings().setBuiltInZoomControls(true);		
-
+		webView.getSettings().setDefaultZoom(ZoomDensity.FAR);
 		
 //		webView.setWebChromeClient(new WebChromeClient() {
 //			public boolean onJsAlert(final WebView webView, final String url, final String message, JsResult result) {
