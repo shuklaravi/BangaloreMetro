@@ -6,19 +6,13 @@ import com.vacuumhead.bangalore.utils.MetroMapData;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.webkit.WebSettings.ZoomDensity;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.graphics.Color;
 
+@SuppressLint("SetJavaScriptEnabled")
 public class ViewMapActivity extends Activity {
 
 	private WebView webView;
