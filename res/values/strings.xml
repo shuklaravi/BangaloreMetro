@@ -39,4 +39,10 @@
 
 	<string name="source">Source</string>
 	<string name="destination">Destination</string>
+	
+	<string name="viewMapDefaultMessage">Select a source station</string>
+	<string name="viewMapSourceMessage">Select a source station</string>
+	<string name="viewMapDestinationMessage">Select a destination station</string>
+	<string name="viewMapResultMessage">Click here to see the list of intermediate stations</string>
+	
 </resources>

@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?> 
-<LinearLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android" 
-    android:orientation="vertical"
-    android:layout_width="fill_parent" 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout"
+    android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:id="@+id/linearLayout"> 
+    android:orientation="vertical" >
 
-	<WebView
-	    android:id="@+id/mapWebView"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent" />
+    <WebView
+        android:id="@+id/mapWebView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="38" />
+
+    <TextView
+        android:id="@+id/messagePanelView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="@string/viewMapDefaultMessage" />
 
 </LinearLayout>

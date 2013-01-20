@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.webkit.WebView;
 import android.webkit.WebSettings.ZoomDensity;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -16,6 +17,7 @@ import android.app.Activity;
 public class ViewMapActivity extends Activity {
 
 	private WebView webView;
+	private TextView messagePaneView;
 	private final Handler handler = new Handler();
 	
 	@Override
@@ -25,6 +27,7 @@ public class ViewMapActivity extends Activity {
 		setContentView(R.layout.activity_view_menu);  
 		
 		webView = (WebView) findViewById(R.id.mapWebView);
+		messagePaneView = (TextView) findViewById(R.id.messagePanelView);
 		
 		webView.getSettings().setJavaScriptEnabled(true);
 		webView.addJavascriptInterface(new AndroidBridge(), "android");
@@ -49,17 +52,9 @@ public class ViewMapActivity extends Activity {
 				public void run() {
 					int fromId = StationConstants.getStationCode(from);
 					int toId = StationConstants.getStationCode(to);
-					
-					Toast.makeText(getBaseContext(), 
-			    			"Fare from " + from + " to " + to + "is \r\n" +
-			    					"1) Token User: Rs. " + 
-			    					MetroMapData.getTokenFareBetweenStations
-			    						(fromId, toId) + " \r\n" +
-			    					"2) Varshik User: Rs. " +
-			    					MetroMapData.getVarshikFareBetweenStations
-			    						(fromId, toId),
-			    			Toast.LENGTH_SHORT).show();
-					
+					messagePaneView.setText("Fare from " + from + " to " + to + " is" +
+					"1) Token Users: Rs. " + MetroMapData.getTokenFareBetweenStations
+					(fromId, toId) + " \r\n2) Varshik User: Rs. " + MetroMapData.getVarshikFareBetweenStations(fromId, toId));
 				}
 				
 			});
@@ -69,9 +64,7 @@ public class ViewMapActivity extends Activity {
 
 				@Override
 				public void run() {
-					Toast.makeText(getBaseContext(), 
-			    			"Source station set as " + from,
-			    			Toast.LENGTH_SHORT).show();					
+					messagePaneView.setText("Source station set as " + from + "\r\nPlease select a destination station");
 				}
 				
 			});
