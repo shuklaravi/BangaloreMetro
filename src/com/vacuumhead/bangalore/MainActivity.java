@@ -19,10 +19,14 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		Button calculateFareButton = (Button) findViewById(R.id.calculateFareButton);
 		Button exitButton = (Button) findViewById(R.id.applicationExitButton);
-		Button viewMapButton = (Button) findViewById(R.id.viewMapButton);	
+		Button calculateFareButton1 = (Button) findViewById(R.id.calculateFareButton1);
+		Button viewMapButton = (Button) findViewById(R.id.viewMapButton);
+		Button viewMapButton1 = (Button) findViewById(R.id.viewMapButton1);	
 		calculateFareButton.setOnClickListener(mainMenuClickListener);		
+		calculateFareButton1.setOnClickListener(mainMenuClickListener);
 		exitButton.setOnClickListener(mainMenuClickListener);
 		viewMapButton.setOnClickListener(mainMenuClickListener);
+		viewMapButton1.setOnClickListener(mainMenuClickListener);
 		
 	
 	}
@@ -41,6 +45,14 @@ public class MainActivity extends Activity {
 			case R.id.viewMapButton:
 				Intent intent1 = new Intent(MainActivity.this, ViewMapActivity.class);
 				startActivity(intent1);
+				break;
+			case R.id.calculateFareButton1:
+				Intent intent2 = new Intent(MainActivity.this, CalculateFareActivity.class);
+				startActivity(intent2);
+				break;
+			case R.id.viewMapButton1:
+				Intent intent3 = new Intent(MainActivity.this, ViewMapActivity.class);
+				startActivity(intent3);
 				break;	
 			case R.id.applicationExitButton:
 				finish();

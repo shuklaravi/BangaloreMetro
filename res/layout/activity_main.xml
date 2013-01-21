@@ -36,7 +36,7 @@
                      android:background="@drawable/faref" />
 
                  <Button
-                     android:id="@+id/calculateFareButton"
+                     android:id="@+id/calculateFareButton1"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginBottom="20dp"
@@ -53,7 +53,7 @@
                      android:background="@drawable/mapm" />
 
                  <Button
-                     android:id="@+id/viewMapButton"
+                     android:id="@+id/viewMapButton1"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginBottom="20dp"
