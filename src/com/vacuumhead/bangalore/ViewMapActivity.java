@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Typeface;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class ViewMapActivity extends Activity {
@@ -36,6 +37,7 @@ public class ViewMapActivity extends Activity {
 		webView.getSettings().setBuiltInZoomControls(true);		
 		webView.getSettings().setDefaultZoom(ZoomDensity.FAR);
 		
+		
 //		webView.setWebChromeClient(new WebChromeClient() {
 //			public boolean onJsAlert(final WebView webView, final String url, final String message, JsResult result) {
 //				
@@ -52,9 +54,9 @@ public class ViewMapActivity extends Activity {
 				public void run() {
 					int fromId = StationConstants.getStationCode(from);
 					int toId = StationConstants.getStationCode(to);
-					messagePaneView.setText("Fare from " + from + " to " + to + " is" +
-					"1) Token Users: Rs. " + MetroMapData.getTokenFareBetweenStations
-					(fromId, toId) + " \r\n2) Varshik User: Rs. " + MetroMapData.getVarshikFareBetweenStations(fromId, toId));
+					messagePaneView.setText("Fare from " + from + " to " + to + " is\n" + 
+					"Token Users: Rs. " + MetroMapData.getTokenFareBetweenStations
+					(fromId, toId) + " \r\nVarshik User: Rs. " + MetroMapData.getVarshikFareBetweenStations(fromId, toId));
 				}
 				
 			});

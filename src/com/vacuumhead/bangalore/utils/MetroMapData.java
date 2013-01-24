@@ -2,6 +2,7 @@ package com.vacuumhead.bangalore.utils;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Vector;
 
 import com.vacuumhead.bangalore.constants.StationConstants;
 import com.vacuumhead.bangalore.constants.UserConstants;
@@ -45,7 +46,6 @@ public class MetroMapData {
 		return tokenPurple[fromStation][toStation];
 	}
 	
-	public String[] getStationList() {		
-		return null;		
-	}
+	
+	
 }

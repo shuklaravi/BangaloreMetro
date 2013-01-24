@@ -33,14 +33,16 @@
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginRight="1dp"
-                     android:background="@drawable/faref" />
+                     android:background="@drawable/button11"
+        			 android:src="@drawable/faref" />
 
                  <Button
                      android:id="@+id/calculateFareButton1"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginBottom="20dp"
-                     android:background="@drawable/fare1" />
+     			   	 android:background="@drawable/button1"
+        			 android:src="@drawable/fare1" />
              </TableRow>
 
              <TableRow>
@@ -50,14 +52,16 @@
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginRight="1dp"
-                     android:background="@drawable/mapm" />
+                     android:background="@drawable/button22"
+        			 android:src="@drawable/mapm" />
 
                  <Button
                      android:id="@+id/viewMapButton1"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginBottom="20dp"
-                     android:background="@drawable/map1" />
+                     android:background="@drawable/button2"
+        			 android:src="@drawable/map1" />
              </TableRow>
 
              <TableRow>
@@ -67,14 +71,16 @@
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginRight="1dp"
-                     android:background="@drawable/abouta" />
+                     android:background="@drawable/button33"
+        			 android:src="@drawable/abouta" />
 
                  <Button
-                     android:id="@+id/about"
+                     android:id="@+id/about1"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginBottom="20dp"
-                     android:background="@drawable/about1" />
+                     android:background="@drawable/button3"
+        			 android:src="@drawable/about1" />
              </TableRow>
 
              <TableRow>
@@ -84,13 +90,15 @@
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginRight="1dp"
-                     android:background="@drawable/exitx" />
+                     android:background="@drawable/button44"
+        			 android:src="@drawable/exitx" />
 
                  <Button
-                     android:id="@+id/applicationExitButton"
+                     android:id="@+id/applicationExitButton1"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
-                     android:background="@drawable/exit1" />
+                     android:background="@drawable/button4"
+        			 android:src="@drawable/exit1" />
              </TableRow>
          </TableLayout>
      

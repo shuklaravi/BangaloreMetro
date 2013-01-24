@@ -2,9 +2,7 @@
 <classpath>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="lib" path="/Users/pratyushverma/android-sdks/platforms/android-16/android.jar">
+	<classpathentry exported="true" kind="lib" path="/home/rogue/workspace/BangaloreMetro/libs/android-support-v4.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="file:/Users/pratyushverma/android-sdks/docs/reference"/>
 		</attributes>
@@ -12,5 +10,7 @@
 			<accessrule kind="nonaccessible" pattern="com/android/internal/**"/>
 		</accessrules>
 	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

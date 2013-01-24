@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+<ScrollView
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent" >
+         
+    <LinearLayout
+        android:orientation="vertical" 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">  
+  <TextView
+      android:id="@+id/tokenText"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:textSize="20sp"
+      android:layout_marginBottom="30dp"  />
+<TableLayout android:layout_height="wrap_content"
+      android:layout_width="wrap_content">
+ <TableRow>
+
+                 <Button
+                     android:id="@+id/viewOnMapButton"
+                     android:text="View On Map"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginRight="20dp"/>
+
+                 <Button
+                     android:id="@+id/intermediateStationsButton"
+                     android:text="Intermediate Stations"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"/>
+             </TableRow>
+       </TableLayout>      
+ </LinearLayout>
+ </ScrollView>
+ </LinearLayout>

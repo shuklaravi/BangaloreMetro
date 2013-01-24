@@ -22,7 +22,7 @@
         </activity>
         <activity            
             android:name=".CalculateFareActivity"
-            android:label="@string/title_activity_calculate_fare" 
+            android:label="@string/title_activity_calculate_fare"
             android:theme="@android:style/Theme.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
          </activity>
          <activity            
             android:name=".TokenUserFareActivity"
-            android:label="@string/title_token_user_fare"   
+            android:label="@string/title_token_user_fare"
             android:theme="@android:style/Theme.Dialog"
             android:textSize="40sp">
         </activity>
@@ -43,7 +43,13 @@
          </activity>
          <activity            
             android:name="com.vacuumhead.bangalore.ViewMapActivity"
-            android:label="@string/title_activity_view_menu" 
+            android:label="@string/title_activity_view_menu"
+            android:textSize="40sp">
+         </activity>
+         <activity            
+            android:name="com.vacuumhead.bangalore.IntermediateStations"
+            android:label="@string/title_intermediate_stations"
+            android:theme="@android:style/Theme.Dialog"
             android:textSize="40sp">
          </activity>
     </application>

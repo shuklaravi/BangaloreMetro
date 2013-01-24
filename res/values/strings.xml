@@ -3,8 +3,9 @@
     <string name="app_name">Bangalore Metro</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">Bangalore Metro</string>
-    <string name="title_activity_calculate_fare">Calculate Fare</string>
+    <string name="title_activity_calculate_fare">Fare</string>
     <string name="title_activity_view_menu">Map</string>
+    <string name="title_intermediate_stations">Intermediate Stations</string>
     <string name="menuHeader">Bangalore Metro</string>
     <string name="menu_settings">Settings</string>
     <string name="menuCalculateFare">Fare</string>
