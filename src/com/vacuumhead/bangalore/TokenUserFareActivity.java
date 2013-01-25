@@ -46,7 +46,8 @@ OnClickListener mainMenuClickListener = new OnClickListener() {
 			
 			switch(v.getId()){
 			case R.id.viewOnMapButton:
-				startViewOnMap();
+				Intent intent2 = new Intent(TokenUserFareActivity.this, LocationActivity.class);
+				startActivity(intent2);
 				break;
 			case R.id.intermediateStationsButton:
 				startIntermediateStations();

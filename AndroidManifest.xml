@@ -52,6 +52,23 @@
             android:theme="@android:style/Theme.Dialog"
             android:textSize="40sp">
          </activity>
+         <activity android:name=".LaunchGPS" android:screenOrientation="portrait">
+  <intent-filter>       
+    <action android:name="android.intent.action.SEND" />
+    <category android:name="android.intent.category.DEFAULT" />
+  </intent-filter>
+</activity>
+        <activity android:name=".LocationActivity"
+            android:label="@string/app_name1" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+         
     </application>
+
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
