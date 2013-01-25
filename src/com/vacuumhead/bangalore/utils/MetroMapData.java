@@ -53,7 +53,9 @@ public class MetroMapData {
 		Map<String, Boolean> visited = new HashMap();
 		
 		Queue<node> q = new LinkedList<node>();
-		q.add(new node(source, new Vector<String>()));
+		Vector<String> temp = new Vector<String>();
+		temp.add(source);
+		q.add(new node(source, temp));
 		visited.put(source, true);
 		
 		while(!q.isEmpty()) {
