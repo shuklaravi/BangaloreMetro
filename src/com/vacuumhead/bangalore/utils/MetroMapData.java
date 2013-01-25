@@ -67,9 +67,11 @@ public class MetroMapData {
 					continue;
 				}
 				visited.put(adjStation.get(i), true);
-				t.path.add(adjStation.get(i));
-				q.add(new node(adjStation.get(i), t.path));
-				t.path.remove(t.path.size() - 1);
+				Vector<String> route = new Vector<String>(t.path);
+				
+				route.add(adjStation.get(i));
+				q.add(new node(adjStation.get(i), route));
+				
 			}
 		}
 		
