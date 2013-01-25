@@ -42,12 +42,12 @@
             android:textSize="40sp">
          </activity>
          <activity            
-            android:name="com.vacuumhead.bangalore.ViewMapActivity"
+            android:name=".ViewMapActivity"
             android:label="@string/title_activity_view_menu"
             android:textSize="40sp">
          </activity>
          <activity            
-            android:name="com.vacuumhead.bangalore.IntermediateStations"
+            android:name=".IntermediateStations"
             android:label="@string/title_intermediate_stations"
             android:theme="@android:style/Theme.Dialog"
             android:textSize="40sp">

@@ -1,7 +1,9 @@
 package com.vacuumhead.bangalore.utils;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Vector;
 
 import com.vacuumhead.bangalore.constants.StationConstants;
@@ -34,6 +36,44 @@ public class MetroMapData {
 		
 		return map;
 		
+	}
+	
+	public static Vector<String> applyBFS(String source, String destination) {
+		
+		class node {
+			String station;
+			Vector<String> path;
+			node(String s, Vector<String> p) {
+				station = s;
+				path = p;
+			}
+		};
+		
+		Vector<String> path = new Vector<String>();
+		Map<String, Boolean> visited = new HashMap();
+		
+		Queue<node> q = new LinkedList<node>();
+		q.add(new node(source, new Vector<String>()));
+		visited.put(source, true);
+		
+		while(!q.isEmpty()) {
+			node t = q.poll();
+			if(t.station.equals(destination)) {
+				return t.path;
+			}
+			Vector<String> adjStation = StationConstants.getAdjacentStationName(t.station);
+			for(int i = 0; i < adjStation.size(); ++i) {
+				if(visited.containsKey(adjStation.get(i))) {
+					continue;
+				}
+				visited.put(adjStation.get(i), true);
+				t.path.add(adjStation.get(i));
+				q.add(new node(adjStation.get(i), t.path));
+				t.path.remove(t.path.size() - 1);
+			}
+		}
+		
+		return null;
 	}
 	
 	public static double getVarshikFareBetweenStations(int fromStation, int toStation) {

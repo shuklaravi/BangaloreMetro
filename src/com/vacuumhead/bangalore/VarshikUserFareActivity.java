@@ -65,7 +65,7 @@ OnClickListener mainMenuClickListener = new OnClickListener() {
 	  //bundle.putString(ViewMapActivity.Source,s);
 	  //bundle.putString(ViewMapActivity.Dest,d);
 	  intent.putExtras(bundle);
-	  startActivityForResult(intent, 0);
+	  startActivity(intent);
 	}
 	private void startIntermediateStations()
 	{
@@ -74,6 +74,6 @@ OnClickListener mainMenuClickListener = new OnClickListener() {
 	  bundle.putString(IntermediateStations.Source,s);
 	  bundle.putString(IntermediateStations.Dest,d);
 	  intent.putExtras(bundle);
-	  startActivityForResult(intent, 0);
+	  startActivity(intent);	  
 	}
 }
