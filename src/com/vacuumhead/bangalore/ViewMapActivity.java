@@ -54,7 +54,9 @@ public class ViewMapActivity extends Activity {
 		
 		@Override
 		public void onClick(View v) {
-			webView.loadUrl("javascript:clear()");			
+			webView.loadUrl("javascript:clear()");		
+			webView.bringToFront();
+			messagePaneView.setText(R.string.viewMapDefaultMessage);
 		}
 	}; 
 	
