@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/clearSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_selection" />
+
+    <WebView
+        android:id="@+id/mapWebView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/messagePanelView"
+        android:layout_weight="38" />
+
+    <TextView
+        android:id="@+id/messagePanelView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="2"
+        android:background="@drawable/viewmap"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:text="@string/viewMapDefaultMessage"
+        android:textColor="#32cd32"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

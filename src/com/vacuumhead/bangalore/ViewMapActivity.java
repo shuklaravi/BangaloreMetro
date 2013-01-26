@@ -6,8 +6,11 @@ import com.vacuumhead.bangalore.utils.MetroMapData;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.webkit.WebView;
 import android.webkit.WebSettings.ZoomDensity;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.annotation.SuppressLint;
@@ -19,13 +22,14 @@ public class ViewMapActivity extends Activity {
 
 	private WebView webView;
 	private TextView messagePaneView;
+	private Button clearMap;
 	private final Handler handler = new Handler();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_view_menu);  
+		setContentView(R.layout.activity_view_map);  
 		
 		webView = (WebView) findViewById(R.id.mapWebView);
 		messagePaneView = (TextView) findViewById(R.id.messagePanelView);
@@ -37,6 +41,8 @@ public class ViewMapActivity extends Activity {
 		webView.getSettings().setBuiltInZoomControls(true);		
 		webView.getSettings().setDefaultZoom(ZoomDensity.FAR);
 		
+		clearMap = (Button) findViewById(R.id.clearSelection);
+		clearMap.setOnClickListener(clearMapListener);
 		
 //		webView.setWebChromeClient(new WebChromeClient() {
 //			public boolean onJsAlert(final WebView webView, final String url, final String message, JsResult result) {
@@ -44,6 +50,13 @@ public class ViewMapActivity extends Activity {
 //			}
 //		});
 	}
+	OnClickListener clearMapListener = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			webView.loadUrl("javascript:clear()");			
+		}
+	}; 
 	
 	public class AndroidBridge {
 		
@@ -57,6 +70,7 @@ public class ViewMapActivity extends Activity {
 					messagePaneView.setText("Fare from " + from + " to " + to + " is\n" + 
 					"Token Users: Rs. " + MetroMapData.getTokenFareBetweenStations
 					(fromId, toId) + " \r\nVarshik User: Rs. " + MetroMapData.getVarshikFareBetweenStations(fromId, toId));
+					clearMap.bringToFront();
 				}
 				
 			});
@@ -72,4 +86,6 @@ public class ViewMapActivity extends Activity {
 			});
 		}
 	}
+
+	
 }
