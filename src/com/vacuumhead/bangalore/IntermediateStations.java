@@ -39,9 +39,7 @@ public class IntermediateStations extends Activity {
 			View tableRow = tableInflator.inflate(R.layout.intermediate_each_station, null);
 			TextView name = (TextView) tableRow.findViewById(R.id.stationName);
 			name.setText(intermediateStation.get(i));
-			
 			table.addView(tableRow, i);
-			
 		}
 				
 }
