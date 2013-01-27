@@ -3,50 +3,85 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="40dip">
+    android:padding="20dip"
+    android:background="@color/grey" >
  <TableLayout android:layout_width="wrap_content"
      android:layout_height="wrap_content" >
   <TableRow>
-   <TextView
+   <!--   <TextView
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:text="@string/sourceStart"
-      android:layout_marginRight="20dip"
-      android:textSize="20sp" />
+      android:textColor="@color/Silver"
+      android:textStyle="bold"
+      android:layout_marginRight="10dip"
+      android:textSize="20sp" /> -->
+   <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/source"/>
+   </TableRow> 
    <Spinner
     android:id="@+id/source_spinner"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="35dip" />
-   </TableRow> 
+   
   <TableRow> 
-   <TextView
-      android:layout_height="wrap_content"
+   <!--  <TextView
+        android:layout_height="wrap_content"
       android:layout_width="wrap_content"
       android:text="@string/destinationStart"
+      android:textStyle="bold"
+      android:textColor="@color/Silver"
       android:textSize="20sp"
-      android:layout_marginRight="20dip"/>
+      android:layout_marginRight="10dip"/> -->
+   <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/destination" />
+   </TableRow>
  <Spinner
     android:id="@+id/destination_spinner"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="40dip"/>	
- </TableRow>
+    android:layout_marginBottom="10dip"/>	
+
  <Button
-      android:id="@+id/fareBeginToken_button"
+      android:id="@+id/fareBeginbutton"
       android:layout_height="wrap_content"
       android:layout_width="wrap_content"
-      android:text="@string/fareBeginToken"
-      android:textSize="15sp"
+      android:background="@drawable/button6"
+      android:layout_marginLeft="80dp"
+      android:layout_marginRight="80dp"
+      android:src="@drawable/farecalc"
       android:layout_marginBottom="20dip" />
-
+ 
+ <TableRow>
+ 
+ </TableRow>
+ <RelativeLayout android:layout_height="fill_parent" android:layout_width="fill_parent" android:layout_weight="1">
+        <LinearLayout  android:layout_height="fill_parent" android:layout_width="fill_parent" android:weightSum="2">
+     <Button
+     android:id="@+id/viewOnMapButton"
+     android:layout_width="0dp" android:layout_height="fill_parent" 
+        android:layout_weight="1" android:scaleType="fitXY"
+        android:layout_marginLeft="10dp"
+      android:background="@drawable/button7"
+      android:layout_marginRight="25dp"
+      android:src="@drawable/mapcalc" />
  <Button
-     android:id="@+id/fareBeginVarshik_button"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:text="@string/fareBeginVarshik"
-     android:textSize="15sp" />
-
+     android:id="@+id/intermediateStationsButton"
+     android:layout_width="0dp" android:layout_height="fill_parent" 
+        android:layout_weight="1" android:scaleType="fitXY"
+        android:layout_marginRight="10dp"
+      android:background="@drawable/button8"
+      android:src="@drawable/intercalc" />
+     
+       </LinearLayout> 
+    </RelativeLayout>
+    
+ 
  </TableLayout>
 </ScrollView>
 

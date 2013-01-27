@@ -69,19 +69,12 @@ public  class CalculateFareActivity extends Activity  {
 
 			});
 			
-	        final Button calculateFareTokenButton = (Button) findViewById(R.id.fareBeginToken_button);
-	        final Button calculateFareVarshikButton = (Button) findViewById(R.id.fareBeginVarshik_button);
-	    /*    final TextView textView1 = (TextView) findViewById(R.id.textView1);	
-	        final TextView textView2 = (TextView) findViewById(R.id.textView2);
-	        calculateFareTokenButton.setOnClickListener(new View.OnClickListener() {             
-	            public void onClick(View v) {                 
-	                // Perform action on click 
-	                    textView1.setText(source+"  "+dest);
-
-	                }         });*/
-	        calculateFareTokenButton.setOnClickListener(mainMenuClickListener);
-	        calculateFareVarshikButton.setOnClickListener(mainMenuClickListener);
-	        			
+	        final Button calculateFareButton = (Button) findViewById(R.id.fareBeginbutton);
+	        final Button intermediateStationsButton = (Button) findViewById(R.id.intermediateStationsButton);
+	        final Button viewOnMapButton = (Button) findViewById(R.id.viewOnMapButton);
+	        calculateFareButton.setOnClickListener(mainMenuClickListener);
+	        intermediateStationsButton.setOnClickListener(mainMenuClickListener);
+	        viewOnMapButton.setOnClickListener(mainMenuClickListener);	        			
 		}	
 
 		
@@ -92,34 +85,49 @@ public  class CalculateFareActivity extends Activity  {
 				// TODO Auto-generated method stub
 				switch(v.getId()){
 				
-				case R.id.fareBeginToken_button:
+				case R.id.fareBeginbutton:
 					startTokenFare();
 					break;
-				case R.id.fareBeginVarshik_button:
-					startVarshikFare();
+				case R.id.viewOnMapButton:
+					Intent intent2 = new Intent(CalculateFareActivity.this, LocationActivity.class);
+					startActivity(intent2);
 					break;
+				case R.id.intermediateStationsButton:
+					startIntermediateStations();
+					break;		
 				}			
 			}
 	};	
 	
-	Bundle bundle=new Bundle();
+Bundle bundle=new Bundle();
+  private void startViewOnMap()
+   {
+ 
+  Intent intent=new Intent(CalculateFareActivity.this,ViewMapActivity.class);
+  //bundle.putString(ViewMapActivity.Source,s);
+  //bundle.putString(ViewMapActivity.Dest,d);
+  intent.putExtras(bundle);
+  startActivityForResult(intent, 0);
+   }
+  private void startIntermediateStations()
+  {
+ 
+  Intent intent=new Intent(CalculateFareActivity.this,IntermediateStations.class);
+  bundle.putString(IntermediateStations.Source,source);
+  bundle.putString(IntermediateStations.Dest,dest);
+  intent.putExtras(bundle);
+  startActivityForResult(intent, 0);
+   }
+
 	private void startTokenFare()
 	{
 	 
-	  Intent intent=new Intent(CalculateFareActivity.this,TokenUserFareActivity.class);
-	  bundle.putString(TokenUserFareActivity.Source,source);
-	  bundle.putString(TokenUserFareActivity.Dest,dest);
+	  Intent intent=new Intent(CalculateFareActivity.this,UserFareActivity.class);
+	  bundle.putString(UserFareActivity.Source,source);
+	  bundle.putString(UserFareActivity.Dest,dest);
 	  intent.putExtras(bundle);
 	  startActivityForResult(intent, 0);
 	}
-	private void startVarshikFare()
-	{
-	 
-	  Intent intent=new Intent(CalculateFareActivity.this,VarshikUserFareActivity.class);
-	  bundle.putString(VarshikUserFareActivity.Source,source);
-	  bundle.putString(VarshikUserFareActivity.Dest,dest);
-	  intent.putExtras(bundle);
-	  startActivityForResult(intent, 0);
-	}
+	
 	
 }

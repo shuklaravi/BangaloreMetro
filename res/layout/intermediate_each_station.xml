@@ -2,25 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
+    android:orientation="vertical"
+    android:padding="20dip"
+    android:background="@color/grey" >
+<ScrollView
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:background="@color/grey" >
+   <LinearLayout 
+     android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/grey" > 
     <TableRow
         android:id="@+id/tableRow1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        android:layout_marginBottom="10dip">
 
         <ImageView
             android:id="@+id/lineColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@android:drawable/picture_frame" />
+            android:paddingLeft="20dp"
+            android:src="@drawable/arrow" />
 
         <TextView
             android:id="@+id/stationName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/White"
             android:text="TextView" />
 
     </TableRow>
-
+</LinearLayout>
+</ScrollView>
 </LinearLayout>
