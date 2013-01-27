@@ -2,10 +2,39 @@
 	<script language="JavaScript">
 		
 		var bestRoute = new Array();
+		
+		function clear() {
+			
+			for(var i = 0; i < document.getElementsByClassName('station').length; ++i) {
+				
+				var station = document.getElementsByClassName('station')[i];
+				station.setAttribute('selected', 'false');
+				
+				for(var j = 0; j < station.getElementsByTagName('ellipse').length; ++j) {
+					var child = station.getElementsByTagName('ellipse')[j];			
+					child.setAttribute('fill', 'url(#2)');
+					child.setAttribute('stroke-width', '2');
+				}
+			}
+			for(var i = 0; i < document.getElementsByTagName('path').length; ++i) {
+				var path = document.getElementsByTagName('path')[i];
+				if(!path.hasAttribute('stationa') || !path.hasAttribute('stationb')) {
+					continue;
+				}
+				path.setAttribute('stroke-width', '4');
+				path.setAttribute('stroke', '#8D38C9');
+			}
+			
+		}
 		function callJS(arg) {
 			var itemSelected = 0;
 			var fromStationId;
 			var toStationId = arg.id;
+			for(var i = 0; i < document.getElementById(arg.id).getElementsByTagName('ellipse').length; ++i) {
+				var child = document.getElementById(arg.id).getElementsByTagName('ellipse')[i];
+				child.setAttribute('fill', 'url(#3)');
+				child.setAttribute('stroke-width', '2');
+			}
 			for(var i = 0; i < document.getElementsByClassName('station').length; ++i) {
 				if(document.getElementsByClassName('station')[i].getAttribute('selected') == 'true') {
 					itemSelected++;
@@ -14,7 +43,7 @@
 			}
 			if(itemSelected == 0) {
 			   
-				window.android.setSourceStation(arg.id);
+				window.android.setSourceStation(arg.id);				
 				document.getElementById(arg.id).setAttribute('selected', 'true');
 								
 			
@@ -40,11 +69,18 @@
 			trackDFS(to, from, to, currRoute, visited);
 			printTrack();
 			
-			console.log(bestRoute);
+			for(var i = 0; i < bestRoute.length; ++i) {
+				for(var j = 0; j < document.getElementById(bestRoute[i]).getElementsByTagName('ellipse').length; ++j) {
+					var child = document.getElementById(bestRoute[i]).getElementsByTagName('ellipse')[j];
+					child.setAttribute('fill', 'url(#3)');
+					child.setAttribute('stroke-width', '2');
+				}
+			}
 		}
 		
 		function printTrack()
 		{
+			
 			for(var i = 1; i < bestRoute.length; ++i) {
 				
 				for(var j = 0; j < document.getElementsByTagName('path').length; ++j) {
@@ -53,7 +89,7 @@
 							(document.getElementsByTagName('path')[j].getAttribute('stationa') == bestRoute[i-1] &&
 									document.getElementsByTagName('path')[j].getAttribute('stationb') == bestRoute[i])) {
 				
-						document.getElementsByTagName('path')[j].setAttribute('stroke', '#0f0');
+						document.getElementsByTagName('path')[j].setAttribute('stroke', '#ffc130');
 						document.getElementsByTagName('path')[j].setAttribute('stroke-width', '6');
 						break;
 					}
@@ -108,7 +144,25 @@
 			function() { return this.slice(0); }
 	</script>
 </head>
-<svg id="canvas" xmlns="http://www.w3.org/2000/svg" width="889px" height="971px"
+
+<style>
+.overlay {
+    z-index:100;
+    top: 0px;
+    left: 0px;
+    opacity: 0.7;
+    background: grey;
+    
+}
+.nooverlay {
+    
+    z-index:100;
+    top: 0px;
+    left: 0px;
+}
+</style>
+
+<svg id="canvas" class="nooverlay" xmlns="http://www.w3.org/2000/svg" width="889px" height="971px"
 	version="1.1">
 	<defs>
 	<linearGradient id="1" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -116,86 +170,92 @@
 	<stop offset="100%" style="stop-color:#66CC00" /></linearGradient>
 	<linearGradient id="2" x1="0%" y1="0%" x2="0%" y2="100%">
 	<stop offset="0%" style="stop-color:#ffffff" />
-	<stop offset="100%" style="stop-color:#4D9900" /></linearGradient></defs>
-	<ellipse cx="18" cy="527" rx="10" ry="10" fill="#ffffff"
+	<stop offset="100%" style="stop-color:#4D9900" /></linearGradient>
+	<linearGradient id="3" x1="0%" y1="0%" x2="0%" y2="100%">
+	<stop offset="0%" style="stop-color:#357EC7" />
+	<stop offset="100%" style="stop-color:#357EC7" /></linearGradient>
+	</defs>
+	
+
+	<ellipse cx="18" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#cc00cc" stroke-width="2" />
-	<ellipse cx="18" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="18" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#cc00cc" stroke-width="2" />
-	<ellipse cx="78" cy="527" rx="10" ry="10" fill="#ffffff"
+	<ellipse cx="78" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#cc00cc" stroke-width="2" />
-	<ellipse cx="78" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="78" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#cc00cc" stroke-width="2" />
 	<path d="M 28 527 M 28 527 L 68 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-	<ellipse cx="118" cy="527" rx="10" ry="10" fill="#ffffff"
+	<ellipse cx="118" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#cc00cc" stroke-width="2" />
-	<ellipse cx="118" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="118" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#cc00cc" stroke-width="2" />
 	<path d="M 88 527 M 88 527 L 108 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-	<ellipse cx="168" cy="527" rx="10" ry="10" fill="#ffffff"
+	<ellipse cx="168" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#cc00cc" stroke-width="2" />
-	<ellipse cx="168" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="168" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#cc00cc" stroke-width="2" />
 	<path d="M 128 527 M 128 527 L 158 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-	<ellipse cx="208" cy="527" rx="10" ry="10" fill="#ffffff"
+	<ellipse cx="208" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#cc00cc" stroke-width="2" />
-	<ellipse cx="208" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="208" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#cc00cc" stroke-width="2" />
 	<path d="M 178 527 M 178 527 L 198 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-	<ellipse cx="258" cy="527" rx="10" ry="10" fill="#ffffff"
+	<ellipse cx="258" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#cc00cc" stroke-width="2" />
-	<ellipse cx="258" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="258" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#cc00cc" stroke-width="2" />
 	<path d="M 218 527 M 218 527 L 248 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-	<ellipse cx="308" cy="527" rx="10" ry="10" fill="#ffffff"
+	<ellipse cx="308" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#cc00cc" stroke-width="2" />
-	<ellipse cx="308" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="308" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#cc00cc" stroke-width="2" />
 	<path d="M 268 527 M 268 527 L 298 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-	<ellipse cx="348" cy="527" rx="10" ry="10" fill="#ffffff"
+	<ellipse cx="348" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#ea6b66" stroke-width="2" />
-	<ellipse cx="348" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="348" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#ea6b66" stroke-width="2" />
 	<path d="M 318 527 M 318 527 L 338 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-	<ellipse cx="398" cy="527" rx="10" ry="10" fill="#ffffff"
+	<ellipse cx="398" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#cc00cc" stroke-width="2" />
-	<ellipse cx="398" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="398" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#cc00cc" stroke-width="2" />
 	<path d="M 358 527 M 358 527 L 388 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-	<ellipse cx="448" cy="527" rx="10" ry="10" fill="#ffffff"
+	<ellipse cx="448" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#cc00cc" stroke-width="2" />
-	<ellipse cx="448" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="448" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#cc00cc" stroke-width="2" />
 	<path d="M 408 527 M 408 527 L 438 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-	<ellipse cx="488" cy="527" rx="10" ry="10" fill="#ffffff"
+	<ellipse cx="488" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#990099" stroke-width="2" />
-	<ellipse cx="488" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="488" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 	<path d="M 458 527 M 458 527 L 478 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 		
 		<svg class="station" onClick="callJS(this)" id="Mahatma_Gandhi_Road">
-	<ellipse cx="538" cy="527" rx="10" ry="10" fill="url(#1)"
+	<ellipse cx="538" cy="527" rx="12" ry="12" fill="url(#1)"
 		stroke="#990099" stroke-width="2" />
-	<ellipse cx="538" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="538" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
 		
@@ -204,205 +264,205 @@
 		stroke-dasharray="12 12" />
 		
 		<svg class="station" onClick="callJS(this)" id="Trinity_Circle">
-	<ellipse cx="578" cy="527" rx="10" ry="10" fill="url(#2)"
+	<ellipse cx="578" cy="527" rx="12" ry="12" fill="url(#2)"
 		stroke="#990099" stroke-width="2" />
-	<ellipse cx="578" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="578" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
 		
 	<path stationA="Mahatma_Gandhi_Road" stationB="Trinity_Circle" d="M 548 527 M 548 527 L 568 527" shape-rendering="crispEdges"
-		fill="none" stroke="#ff0000" stroke-width="4" stroke-miterlimit="10" />
+		fill="none" stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
 		
 		<svg class="station" onClick="callJS(this)" id="Halasuru">
-	<ellipse cx="618" cy="527" rx="10" ry="10" fill="url(#2)"
+	<ellipse cx="618" cy="527" rx="12" ry="12" fill="url(#2)"
 		stroke="#990099" stroke-width="2" />
-	<ellipse cx="618" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="618" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
 		
 	<path stationA="Trinity_Circle" stationB="Halasuru" d="M 588 527 M 588 527 L 608 527" shape-rendering="crispEdges"
-		fill="none" stroke="#ff0000" stroke-width="4" stroke-miterlimit="10" />
+		fill="none" stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
 		
 		<svg class="station" onClick="callJS(this)" id="Indiranagar">
-	<ellipse cx="668" cy="527" rx="10" ry="10" fill="url(#2)"
+	<ellipse cx="668" cy="527" rx="12" ry="12" fill="url(#2)"
 		stroke="#990099" stroke-width="2" />
-	<ellipse cx="668" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="668" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
 		
 	<path stationA="Halasuru" stationB="Indiranagar" d="M 628 527 M 628 527 L 658 527" shape-rendering="crispEdges"
-		fill="none" stroke="#ff0000" stroke-width="4" stroke-miterlimit="10" />
+		fill="none" stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
 		
 		<svg class="station" onClick="callJS(this)" id="Swami_Vivekananda_Road">
-	<ellipse cx="718" cy="527" rx="10" ry="10" fill="url(#1)"
+	<ellipse cx="718" cy="527" rx="12" ry="12" fill="url(#1)"
 		stroke="#990099" stroke-width="2" />
-	<ellipse cx="718" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="718" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
 		
 	<path stationA="Indiranagar" stationB="Swami_Vivekananda_Road" d="M 678 527 M 678 527 L 708 527" shape-rendering="crispEdges"
-		fill="none" stroke="#ff0000" stroke-width="4" stroke-miterlimit="10" />
+		fill="none" stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
 		
 		<svg class="station" onClick="callJS(this)" id="Baiyappanahalli">
-	<ellipse cx="758" cy="527" rx="10" ry="10" fill="url(#2)"
+	<ellipse cx="758" cy="527" rx="12" ry="12" fill="url(#2)"
 		stroke="#990099" stroke-width="2" />
-	<ellipse cx="758" cy="527" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="758" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
 		
 	<path stationA="Swami_Vivekananda_Road" stationB="Baiyappanahalli" d="M 728 527 M 728 527 L 748 527" shape-rendering="crispEdges"
-		fill="none" stroke="#ff0000" stroke-width="4" stroke-miterlimit="10" />
+		fill="none" stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
 	<ellipse cx="348" cy="586" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="586" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="586" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<ellipse cx="348" cy="628" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="628" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="628" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 597 M 348 597 L 348 617" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="668" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="668" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="668" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 639 M 348 639 L 348 657" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="708" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="708" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="708" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 679 M 348 679 L 348 697" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="748" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="748" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="748" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 719 M 348 719 L 348 737" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="788" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="788" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="788" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 759 M 348 759 L 348 777" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="828" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="828" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="828" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 799 M 348 799 L 348 817" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="868" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="868" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="868" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 839 M 348 839 L 348 857" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="908" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="908" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="908" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 879 M 348 879 L 348 897" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="958" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="958" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="958" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 919 M 348 919 L 348 947" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="468" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="468" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="468" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<ellipse cx="348" cy="418" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="418" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="418" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 457 M 348 457 L 348 429" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="368" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="368" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="368" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 407 M 348 407 L 348 379" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="318" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="318" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="318" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 357 M 348 357 L 348 329" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="348" cy="268" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="348" cy="268" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="348" cy="268" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 348 307 M 348 307 L 348 279" shape-rendering="crispEdges"
 		fill="none" stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="298" cy="238" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="298" cy="238" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="298" cy="238" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 340.9 260.19 M 340.9 260.19 L 308 244" fill="none"
 		stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="248" cy="208" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="248" cy="208" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="248" cy="208" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 290.9 230.19 M 290.9 230.19 L 258 214" fill="none"
 		stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="208" cy="178" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="208" cy="178" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="208" cy="178" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 240.9 200.19 M 240.9 200.19 L 218 185.5" fill="none"
 		stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="168" cy="148" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="168" cy="148" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="168" cy="148" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 200.9 170.19 M 200.9 170.19 L 178 155.5" fill="none"
 		stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="128" cy="118" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="128" cy="118" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="128" cy="118" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 160.9 140.19 M 160.9 140.19 L 138 125.5" fill="none"
 		stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="88" cy="88" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="88" cy="88" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="88" cy="88" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 120.9 110.19 M 120.9 110.19 L 98 95.5" fill="none"
 		stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
 	<ellipse cx="58" cy="58" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="58" cy="58" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="58" cy="58" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 80.9 80.19 M 80.9 80.19 L 68 68" fill="none"
 		stroke="#4d9900" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-	<ellipse cx="18" cy="28" rx="10" ry="11" fill="#ffffff"
+	<ellipse class="station" operation="none" cx="18" cy="28" rx="10" ry="11" fill="#ffffff"
 		stroke="#009900" stroke-width="2" />
-	<ellipse cx="18" cy="28" rx="4.08" ry="4.49" fill="none"
+	<ellipse cx="18" cy="28" rx="5.08" ry="4.49" fill="none"
 		stroke="#009900" stroke-width="2" />
 	<path d="M 50.9 50.19 M 50.9 50.19 L 28 35.5" fill="none"
 		stroke="#009900" stroke-width="4" stroke-miterlimit="10"
@@ -616,15 +676,15 @@
 	<path d="M 497 158.5 M 497 158.5 L 550.63 158.5"
 		shape-rendering="crispEdges" fill="none" stroke="#000000"
 		stroke-miterlimit="10" />
-	<ellipse cx="538" cy="57" rx="10" ry="10" fill="url(#1)"
+	<ellipse cx="538" cy="57" rx="12" ry="12" fill="url(#1)"
 		stroke="#990099" stroke-width="2" />
-	<ellipse cx="538" cy="57" rx="4.08" ry="4.08" fill="none"
+	<ellipse cx="538" cy="57" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 	<g font-size="12px" font-family="Tahoma" fill="#000000">
 	<text x="571" y="56">ACTIVE STATIONS</text>
 	<text x="571" y="71.6"></text></g>
 	<path d="M 498 78 L 558 78" shape-rendering="crispEdges" fill="none"
-		stroke="#ff0000" stroke-width="4" stroke-miterlimit="10" />
+		stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
 	<g font-size="14px" font-family="Tahoma" fill="#000000">
 	<text x="571" y="83.75">Active Metro Route</text></g>
 	<path d="M 498 108 L 563 108" shape-rendering="crispEdges" fill="none"
@@ -638,4 +698,5 @@
 	<g font-size="14px" font-family="Tahoma" fill="#000000">
 	<text x="571" y="137.75">East-West corridor Metro line</text></g>
 	<g font-size="12px" font-family="Tahoma" fill="#000000">
-	<text x="571" y="162.5">METRO RAIL PHASE 2&amp;3 PROPOSED</text></g></svg>
+	<text x="571" y="162.5">METRO RAIL PHASE 2&amp;3 PROPOSED</text></g>
+	</svg>	

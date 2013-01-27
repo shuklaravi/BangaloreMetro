@@ -58,4 +58,5 @@
     <string name="not_support_network">Network provider not supported</string>
     <string name="use_fine_provider">GPS</string>
     <string name="use_both_providers">Network and GPS</string>
+    <string name="clear_selection">Clear Map Selection</string>
 </resources>
