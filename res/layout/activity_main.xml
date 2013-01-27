@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bloremain"
-    android:gravity="center_horizontal|fill_horizontal"
-    android:padding="10dip" >
+    android:gravity="center_horizontal|fill_horizontal" >
 
-     <ScrollView
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content" >
-         
-    <LinearLayout
-        android:orientation="vertical" 
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-      
-     
+         <ImageView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:scaleType="fitXY"
+             android:scrollbarAlwaysDrawVerticalTrack="false"
+             android:src="@drawable/bloremain" />
+    
          <TableLayout
-             android:layout_width="fill_parent"
-             android:layout_height="wrap_content"
-             android:paddingTop="90dp" >
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:paddingTop="130dip" >
 
              <TableRow>
 
@@ -42,7 +41,7 @@
         			 android:src="@drawable/faremain" />
              </TableRow>
 
-             <TableRow>
+             <TableRow android:layout_width="match_parent" >
 
                   <!--             <Button
                      android:id="@+id/viewMapButton"
@@ -122,6 +121,6 @@
          </TableLayout>
      
     
- </LinearLayout>
- </ScrollView>   
-</LinearLayout>
+  
+</RelativeLayout>
+</ScrollView>  
