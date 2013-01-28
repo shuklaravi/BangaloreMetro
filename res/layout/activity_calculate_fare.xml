@@ -68,7 +68,6 @@
         android:layout_weight="1" android:scaleType="fitXY"
         android:layout_marginLeft="10dp"
       android:background="@drawable/button7"
-      android:layout_marginRight="25dp"
       android:src="@drawable/mapcalc" />
  <Button
      android:id="@+id/intermediateStationsButton"

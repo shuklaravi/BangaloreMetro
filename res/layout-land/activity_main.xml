@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content" >
          
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -10,7 +13,6 @@
   		 <ImageView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
              android:src="@drawable/bmetro1"/>
   		 
          <TableLayout
@@ -35,7 +37,7 @@
                      android:layout_marginBottom="15dp"
                      android:layout_marginLeft="20dp"
                      android:background="@drawable/button1"
-        			 android:src="@drawable/faremain" />
+        		 	 android:src="@drawable/faremain" />
              </TableRow>
 
              <TableRow android:layout_width="match_parent" >
@@ -118,3 +120,4 @@
          </TableLayout>
      
 </RelativeLayout>
+</ScrollView>
