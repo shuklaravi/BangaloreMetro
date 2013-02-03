@@ -26,6 +26,12 @@
 			}
 			
 		}
+		
+		function forceSet(source, dest) {
+			callJS(document.getElementById(source));
+			callJS(document.getElementById(dest));
+		}
+		
 		function callJS(arg) {
 			var itemSelected = 0;
 			var fromStationId;

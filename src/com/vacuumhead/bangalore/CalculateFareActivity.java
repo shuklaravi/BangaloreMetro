@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 public  class CalculateFareActivity extends Activity  {
 
+	Bundle bundle=new Bundle();
 	 public String source,dest; 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +90,7 @@ public  class CalculateFareActivity extends Activity  {
 					startTokenFare();
 					break;
 				case R.id.viewOnMapButton:
-					Intent intent2 = new Intent(CalculateFareActivity.this, LocationActivity.class);
+					Intent intent2 = new Intent(CalculateFareActivity.this, ViewMapActivity.class);
 					startActivity(intent2);
 					break;
 				case R.id.intermediateStationsButton:
@@ -99,13 +100,13 @@ public  class CalculateFareActivity extends Activity  {
 			}
 	};	
 	
-Bundle bundle=new Bundle();
+
   private void startViewOnMap()
    {
  
   Intent intent=new Intent(CalculateFareActivity.this,ViewMapActivity.class);
-  //bundle.putString(ViewMapActivity.Source,s);
-  //bundle.putString(ViewMapActivity.Dest,d);
+  bundle.putString(ViewMapActivity.Source,source);
+  bundle.putString(ViewMapActivity.Dest,dest);
   intent.putExtras(bundle);
   startActivityForResult(intent, 0);
    }

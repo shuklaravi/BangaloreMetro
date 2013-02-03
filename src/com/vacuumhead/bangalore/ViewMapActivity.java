@@ -1,6 +1,8 @@
 package com.vacuumhead.bangalore;
 
 
+import java.io.Console;
+
 import com.vacuumhead.bangalore.constants.StationConstants;
 import com.vacuumhead.bangalore.utils.MetroMapData;
 
@@ -24,11 +26,14 @@ public class ViewMapActivity extends Activity {
 	private TextView messagePaneView;
 	private Button clearMap;
 	private final Handler handler = new Handler();
+	public static final String Source="Source";
+	public static final String Dest="Destination";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_view_map);  
 		
 		webView = (WebView) findViewById(R.id.mapWebView);
@@ -43,6 +48,13 @@ public class ViewMapActivity extends Activity {
 		
 		clearMap = (Button) findViewById(R.id.clearSelection);
 		clearMap.setOnClickListener(clearMapListener);
+		
+		if(savedInstanceState != null) {
+			Bundle extras=getIntent().getExtras();
+			String s=extras.getString(Source);
+			String d=extras.getString(Dest);
+			webView.loadUrl("javascript:forceSet(" + s + "," + d + ")");
+		}
 		
 //		webView.setWebChromeClient(new WebChromeClient() {
 //			public boolean onJsAlert(final WebView webView, final String url, final String message, JsResult result) {
