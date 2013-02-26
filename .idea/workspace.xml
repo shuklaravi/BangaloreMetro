@@ -37,28 +37,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c362f5f-8791-4e26-8902-c02158eeea55" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/GoogleMapActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/layout/activity_google_map.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/menu/activity_google_map.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ant.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/googlemap.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/LocationActivity.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BangaloreMetro.eml" afterPath="$PROJECT_DIR$/BangaloreMetro.eml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BangaloreMetro.iml" afterPath="$PROJECT_DIR$/BangaloreMetro.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/CalculateFareActivity.java" afterPath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/CalculateFareActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/TokenUserFareActivity.java" afterPath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/TokenUserFareActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/ViewMapActivity.java" afterPath="$PROJECT_DIR$/src/com/vacuumhead/bangalore/ViewMapActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_calculate_fare.xml" afterPath="$PROJECT_DIR$/res/layout/activity_calculate_fare.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/strings.xml" afterPath="$PROJECT_DIR$/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/googlemap.html" afterPath="$PROJECT_DIR$/assets/googlemap.html" />
     </list>
     <ignored path="BangaloreMetro.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -170,7 +150,7 @@
       <file leaf-file-name="GoogleMapActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/vacuumhead/bangalore/GoogleMapActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="72" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.0">
+            <state line="46" column="72" selection-start="1473" selection-end="1473" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -200,7 +180,7 @@
       <file leaf-file-name="googlemap.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/googlemap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="35" selection-start="3066" selection-end="3066" vertical-scroll-proportion="0.32490975">
+            <state line="110" column="35" selection-start="3202" selection-end="3202" vertical-scroll-proportion="0.32490975">
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -749,7 +729,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vacuumhead/bangalore/GoogleMapActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="72" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.0">
+        <state line="46" column="72" selection-start="1473" selection-end="1473" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -763,7 +743,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/googlemap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="35" selection-start="3066" selection-end="3066" vertical-scroll-proportion="0.32490975">
+        <state line="110" column="35" selection-start="3202" selection-end="3202" vertical-scroll-proportion="0.32490975">
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

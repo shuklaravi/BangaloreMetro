@@ -18,15 +18,42 @@
     var bestRoute = new Array();
     var latMap = new Object();
     var longMap = new Object();
+    var stations = ["Mahatma_Gandhi_Road","Trinity_Circle","Halasuru","Indiranagar","Swami_Vivekananda_Road","Baiyappanahalli"];
+    var stationMarker = new Array();
     var flight;
     var map;
 	
+    
+    function reset() {
+    	console.log(stationMarker[0]);
+		for(var i = stationMarker.length - 1; i >= 0 ; --i) {
+			stationMarker[i]=null;
+			stationMarker.pop();
+		}    	 		
+		if(typeof(flight)!=='undefined') {
+			flight.setVisible(false);
+		}
+    }
+    function showAllStation() {
+    	
+    	for(var i = 0; i < stations.length; ++i) {
+    		var station = getStation(stations[i]);
+  		  	var marker = new google.maps.Marker({
+  			  position: station
+  		  	});  
+  		  	console.log(marker);
+  		    marker.setMap(map);
+  		    
+  		    stationMarker.push(marker);
+    	}
+    }
     function getStation(station) {
     	var lat = latMap[station];
     	var lng = longMap[station];
     	var stat = new google.maps.LatLng(lat, lng);        	        
     	return stat;
     }
+    
       function initialize() {
     	latMap["Mahatma_Gandhi_Road"] = 12.975353;
     	latMap["Trinity_Circle"] = 12.973067;
@@ -53,6 +80,7 @@
                mapOptions);
 
         highlightTrack("Mahatma_Gandhi_Road", "Indiranagar");
+        showAllStation();
         
       }
       
@@ -95,7 +123,8 @@
     			  marker.setAnimation(google.maps.Animation.DROP);
     			  
     		  marker.setMap(map);
-    		  for(var x = 1; x < 100000; ++x);
+    		  marker.setVisible(true);
+    		  
     		  track.push(station);
     	  }      	  
     	  return track;
@@ -103,8 +132,8 @@
       
       
 		function forceSet(from, to)
-		{			
-            flight.setVisible(false);
+		{			            
+			reset();
             findRoute(from, to);
 			console.log(bestRoute);
 			highlightTrack();

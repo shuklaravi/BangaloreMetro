@@ -92,8 +92,7 @@ public class CalculateFareActivity extends Activity {
                     startTokenFare();
                     break;
                 case R.id.viewOnMapButton:
-                    Intent intent2 = new Intent(CalculateFareActivity.this, ViewMapActivity.class);
-                    startActivity(intent2);
+                    startViewOnMap();
                     break;
                 case R.id.intermediateStationsButton:
                     startIntermediateStations();

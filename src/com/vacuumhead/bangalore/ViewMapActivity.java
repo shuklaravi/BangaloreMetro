@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebSettings.ZoomDensity;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
 import com.vacuumhead.bangalore.constants.StationConstants;
@@ -23,7 +24,8 @@ public class ViewMapActivity extends Activity {
 	private final Handler handler = new Handler();
 	public static final String Source="Source";
 	public static final String Dest="Destination";
-	
+	public String s;
+	public String d;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
@@ -44,11 +46,18 @@ public class ViewMapActivity extends Activity {
 		clearMap = (Button) findViewById(R.id.clearSelection);
 		clearMap.setOnClickListener(clearMapListener);
 		
-		if(savedInstanceState != null) {
-			Bundle extras=getIntent().getExtras();
-			String s=extras.getString(Source);
-			String d=extras.getString(Dest);
-			webView.loadUrl("javascript:forceSet(" + s + "," + d + ")");
+		Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+			s=extras.getString(Source);
+			d=extras.getString(Dest);
+			
+			webView.setWebViewClient(new WebViewClient() {
+	        	@Override
+	        	public void onPageFinished(WebView view, String url) {
+	        		
+	        		webView.loadUrl("javascript:forceSet(\"" + s + "\",\"" + d + "\")");
+	        	}
+	        });
 		}
 		
 	}

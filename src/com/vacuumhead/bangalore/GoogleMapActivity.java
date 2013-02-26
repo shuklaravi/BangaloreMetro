@@ -28,9 +28,9 @@ public class GoogleMapActivity extends Activity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.addJavascriptInterface(androidBridge, "android");
         webView.loadUrl("file:///android_asset/googlemap.html");
-        
-        
         Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+        
         s = extras.getString(Source);
         d = extras.getString(Dest);
         
@@ -41,7 +41,7 @@ public class GoogleMapActivity extends Activity {
         		webView.loadUrl("javascript:forceSet(\"" + s + "\",\"" + d + "\")");
         	}
         });
-    	    
+        }
         
     
         
