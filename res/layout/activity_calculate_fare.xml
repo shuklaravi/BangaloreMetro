@@ -58,6 +58,12 @@
       android:layout_marginBottom="20dip" />
  
  <TableRow>
+
+     <Button
+         android:id="@+id/viewOnGoogleMapButton"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="View on Google Map" />
  
  </TableRow>
  <RelativeLayout android:layout_height="fill_parent" android:layout_width="fill_parent" android:layout_weight="1">

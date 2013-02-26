@@ -1,23 +1,18 @@
 package com.vacuumhead.bangalore;
 
 
-import java.io.Console;
-
-import com.vacuumhead.bangalore.constants.StationConstants;
-import com.vacuumhead.bangalore.utils.MetroMapData;
-
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.webkit.WebView;
 import android.webkit.WebSettings.ZoomDensity;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.graphics.Typeface;
+import com.vacuumhead.bangalore.constants.StationConstants;
+import com.vacuumhead.bangalore.utils.MetroMapData;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class ViewMapActivity extends Activity {
@@ -56,11 +51,6 @@ public class ViewMapActivity extends Activity {
 			webView.loadUrl("javascript:forceSet(" + s + "," + d + ")");
 		}
 		
-//		webView.setWebChromeClient(new WebChromeClient() {
-//			public boolean onJsAlert(final WebView webView, final String url, final String message, JsResult result) {
-//				
-//			}
-//		});
 	}
 	OnClickListener clearMapListener = new OnClickListener() {
 		

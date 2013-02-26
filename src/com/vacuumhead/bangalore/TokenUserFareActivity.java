@@ -1,17 +1,14 @@
 package com.vacuumhead.bangalore;
 
-import com.vacuumhead.bangalore.constants.StationConstants;
-import com.vacuumhead.bangalore.utils.MetroMapData;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+import com.vacuumhead.bangalore.constants.StationConstants;
+import com.vacuumhead.bangalore.utils.MetroMapData;
 
 public class TokenUserFareActivity extends Activity {
 	public static final String Source="Source";
@@ -45,10 +42,7 @@ OnClickListener mainMenuClickListener = new OnClickListener() {
 		public void onClick(View v) {
 			
 			switch(v.getId()){
-			case R.id.viewOnMapButton:
-				Intent intent2 = new Intent(TokenUserFareActivity.this, LocationActivity.class);
-				startActivity(intent2);
-				break;
+
 			case R.id.intermediateStationsButton:
 				startIntermediateStations();
 				break;

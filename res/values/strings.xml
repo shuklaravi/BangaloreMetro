@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">Bangalore Metro</string>
+    <string name="app_name">BangaloreMetro</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_main">Bangalore Metro</string>
     <string name="title_activity_calculate_fare">Fare</string>
@@ -14,41 +14,32 @@
     <string name="menuNone">None</string>
     <string name="calculatefare_begin">Calculating fare from Map</string>
     <string name="calculatefare_start">start!</string>
-
-
-	<string name="sourceStart">SOURCE</string>
+    <string name="sourceStart">SOURCE</string>
     <string name="destinationStart">DESTINATION</string>
     <string name="currentSearch">Place</string>
-    <string-array name="stationName">
-                <item>Baiyappanahalli</item>
-                <item>Swami_Vivekananda_Road</item>
-                <item>Indiranagar</item>
-                <item>Halasuru</item>
-                <item>Trinity_Circle</item>
-                <item>Mahatma_Gandhi_Road</item>
-                </string-array>
-<string-array name="fare">
-                <item>Fare Token</item>
-                <item>FAre Var</item>
-                </string-array>                
-	
-    <string name="title_activity_view_map">ViewMapActivity</string>
-    
-    <string name="title_user_fare">FARE</string>    
 
-	<string name="source">Source</string>
-	<string name="destination">Destination</string>
-	
-	<string name="viewMapDefaultMessage">Select a source station</string>
-	<string name="viewMapSourceMessage">Select a source station</string>
-	<string name="viewMapDestinationMessage">Select a destination station</string>
-	<string name="viewMapResultMessage">Click here to see the list of intermediate stations</string>
-	
-	
-	
-	
-	
-	 <string name="app_name1">Android Training: Location Update</string>
+    <string-array name="stationName">
+        <item>Baiyappanahalli</item>
+        <item>Swami_Vivekananda_Road</item>
+        <item>Indiranagar</item>
+        <item>Halasuru</item>
+        <item>Trinity_Circle</item>
+        <item>Mahatma_Gandhi_Road</item>
+    </string-array>
+    <string-array name="fare">
+        <item>Fare Token</item>
+        <item>FAre Var</item>
+    </string-array>
+
+    <string name="title_activity_view_map">ViewMapActivity</string>
+    <string name="title_user_fare">FARE</string>
+    <string name="source">Source</string>
+    <string name="destination">Destination</string>
+    <string name="viewMapDefaultMessage">Select a source station</string>
+    <string name="viewMapSourceMessage">Select a source station</string>
+    <string name="viewMapDestinationMessage">Select a destination station</string>
+    <string name="viewMapResultMessage">Click here to see the list of intermediate stations</string>
+    <string name="app_name1">Android Training: Location Update</string>
     <string name="address">Address:</string>
     <string name="enable_gps">Enable GPS</string>
     <string name="enable_gps_dialog">GPS provider not enabled. Would you like to enable it?</string>
@@ -59,4 +50,6 @@
     <string name="use_fine_provider">GPS</string>
     <string name="use_both_providers">Network and GPS</string>
     <string name="clear_selection">Clear Map Selection</string>
+    <string name="title_activity_google_map">GoogleMapActivity</string>
+
 </resources>
