@@ -51,5 +51,6 @@
     <string name="use_both_providers">Network and GPS</string>
     <string name="clear_selection">Clear Map Selection</string>
     <string name="title_activity_google_map">GoogleMapActivity</string>
+    <string name="title_activity_station">StationActivity</string>
 
 </resources>

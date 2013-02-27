@@ -26,6 +26,9 @@ public class MainActivity extends Activity {
 		//calculateFareButton.setOnClickListener(mainMenuClickListener);		
 		calculateFareButton1.setOnClickListener(mainMenuClickListener);
 		Button viewGoogleMap = (Button) findViewById(R.id.viewGoogleMapButton);
+		
+		Button viewStation = (Button) findViewById(R.id.viewStationButton);
+		viewStation.setOnClickListener(mainMenuClickListener);
 		//calculateFareButton1.setBackgroundColor(Integer.parseInt("bdbdbd", 16)+0xFF000000);
 		//exitButton.setOnClickListener(mainMenuClickListener);
 		//viewMapButton.setOnClickListener(mainMenuClickListener);
@@ -61,6 +64,10 @@ public class MainActivity extends Activity {
 			case R.id.viewGoogleMapButton:
 				Intent intent4 = new Intent(MainActivity.this, GoogleMapActivity.class);
 				startActivity(intent4);
+				break;
+			case R.id.viewStationButton:
+				Intent intent5 = new Intent(MainActivity.this, StationActivity.class);
+				startActivity(intent5);
 				break;
 			//case R.id.applicationExitButton:
 				//finish();

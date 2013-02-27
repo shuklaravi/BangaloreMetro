@@ -82,13 +82,14 @@
         			 android:src="@drawable/mapm" /> -->
 
                  <Button
-                     android:id="@+id/viewPlacesButton1"
+                     android:id="@+id/viewStationButton"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:layout_marginBottom="15dp"
                      android:layout_marginLeft="20dp"
                      android:background="@drawable/button5"
-        			 android:src="@drawable/placesmain" />
+                     android:src="@drawable/placesmain" />
+
              </TableRow>
              
              <TableRow>
