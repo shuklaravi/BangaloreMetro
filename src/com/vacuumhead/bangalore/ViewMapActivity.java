@@ -12,6 +12,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.vacuumhead.bangalore.constants.StationConstants;
 import com.vacuumhead.bangalore.utils.MetroMapData;
 
@@ -40,8 +42,8 @@ public class ViewMapActivity extends Activity {
 		webView.addJavascriptInterface(new AndroidBridge(), "android");
 		webView.loadUrl("file:///android_asset/metro_map.html");
 		
-		webView.getSettings().setBuiltInZoomControls(true);		
-		webView.getSettings().setDefaultZoom(ZoomDensity.FAR);
+		webView.getSettings().setBuiltInZoomControls(true);					
+		webView.setInitialScale(90);		
 		
 		clearMap = (Button) findViewById(R.id.clearSelection);
 		clearMap.setOnClickListener(clearMapListener);
@@ -94,6 +96,18 @@ public class ViewMapActivity extends Activity {
 				@Override
 				public void run() {
 					messagePaneView.setText("Source station set as " + from + "\r\nPlease select a destination station");
+				}
+				
+			});
+		}
+		public void alert(final String msg) {
+			handler.post(new Runnable() {
+
+				@Override
+				public void run() {
+					Toast.makeText(getApplicationContext(),
+                            msg,
+                            Toast.LENGTH_SHORT).show();
 				}
 				
 			});
