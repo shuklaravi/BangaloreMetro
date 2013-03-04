@@ -3,8 +3,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="10"
-        android:targetSdkVersion="15"  />
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="15" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +15,7 @@
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -50,7 +52,7 @@
         <activity
             android:name="com.vacuumhead.bangalore.MapActivity"
             android:background="@color/grey"
-            android:textSize="40sp">
+            android:textSize="40sp" >
         </activity>
         <activity
             android:name=".LaunchGPS"
@@ -67,7 +69,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -76,7 +77,14 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AboutUsActivity"
+            android:label="@string/title_activity_about_us" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
     </application>

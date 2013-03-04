@@ -52,5 +52,6 @@
     <string name="clear_selection">Clear Map Selection</string>
     <string name="title_activity_google_map">GoogleMapActivity</string>
     <string name="title_activity_station">StationActivity</string>
+    <string name="title_activity_about_us">AboutUsActivity</string>
 
 </resources>

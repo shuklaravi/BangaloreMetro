@@ -24,13 +24,16 @@ public class StationActivity extends Activity {
         items = res.getStringArray(R.array.stationName);
         
         webView = (WebView) findViewById(R.id.stationDataWebView);
-        Spinner stationSpinner = (Spinner) findViewById(R.id.selectStationSpinner);
-        ArrayAdapter<String> adapterSource = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
-        adapterSource.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        stationSpinner.setAdapter(adapterSource);        
+        webView.loadUrl("file:///android_asset/station/allStation.html");
         
-		stationSpinner.setOnItemSelectedListener(selectedStationListener);
-		stationSpinner.setSelection(0);
+        
+//        Spinner stationSpinner = (Spinner) findViewById(R.id.selectStationSpinner);
+//        ArrayAdapter<String> adapterSource = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, items);
+//        adapterSource.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        stationSpinner.setAdapter(adapterSource);        
+//        
+//		stationSpinner.setOnItemSelectedListener(selectedStationListener);
+//		stationSpinner.setSelection(0);
     }
     
     OnItemSelectedListener selectedStationListener = new AdapterView.OnItemSelectedListener() {

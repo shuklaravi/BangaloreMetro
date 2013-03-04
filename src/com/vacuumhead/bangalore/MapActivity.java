@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class MapActivity extends TabActivity {
 	public static final String Source="Source";
 	public static final String Dest="Destination";
+	public static final String openTab="OpenTab";
 	public String s;
 	public String d;
 	
@@ -43,14 +44,14 @@ public class MapActivity extends TabActivity {
         spec.setContent(intent1);  
         spec.setIndicator("Interactive Map");  
         tabHost.addTab(spec);
-        tabHost.getTabWidget().getChildAt(0).getLayoutParams().height = 30;
+        //tabHost.getTabWidget().getChildAt(0).getLayoutParams().height = 30;
         
         
         spec = tabHost.newTabSpec("tabTwo");  
         spec.setContent(intent2);  
         spec.setIndicator("Google Map");
         tabHost.addTab(spec);
-        tabHost.getTabWidget().getChildAt(1).getLayoutParams().height = 30;
+        //tabHost.getTabWidget().getChildAt(1).getLayoutParams().height = 30;
         tabHost.setCurrentTab(0);
         
         
