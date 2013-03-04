@@ -3,7 +3,8 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="16" />
+    <uses-sdk android:minSdkVersion="10"
+        android:targetSdkVersion="15"  />
 
     <application
         android:allowBackup="true"
@@ -49,7 +50,8 @@
         <activity
             android:name="com.vacuumhead.bangalore.MapActivity"
             android:background="@color/grey"
-            android:textSize="40sp"> 
+            android:textSize="40sp">
+             
         </activity>
         <activity
             android:name=".LaunchGPS"
