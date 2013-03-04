@@ -70,9 +70,7 @@ public class CalculateFareActivity extends Activity {
         final Button calculateFareButton = (Button) findViewById(R.id.fareBeginbutton);
         final Button intermediateStationsButton = (Button) findViewById(R.id.intermediateStationsButton);
         final Button viewOnMapButton = (Button) findViewById(R.id.viewOnMapButton);
-        final Button viewOnGoogleMapButton = (Button) findViewById(R.id.viewOnGoogleMapButton);
-
-        viewOnGoogleMapButton.setOnClickListener(mainMenuClickListener);
+        
         calculateFareButton.setOnClickListener(mainMenuClickListener);
         intermediateStationsButton.setOnClickListener(mainMenuClickListener);
         viewOnMapButton.setOnClickListener(mainMenuClickListener);
@@ -97,28 +95,17 @@ public class CalculateFareActivity extends Activity {
                 case R.id.intermediateStationsButton:
                     startIntermediateStations();
                     break;
-                case R.id.viewOnGoogleMapButton:
-                    viewOnGoogleMap();
-                    break;
             }
         }
 
     };
 
-    private void viewOnGoogleMap() {
-
-        Intent intent = new Intent(CalculateFareActivity.this, GoogleMapActivity.class);
-        bundle.putString(GoogleMapActivity.Source, source);
-        bundle.putString(GoogleMapActivity.Dest, dest);
-        intent.putExtras(bundle);
-        startActivityForResult(intent, 0);
-    }
 
     private void startViewOnMap() {
 
-        Intent intent = new Intent(CalculateFareActivity.this, ViewMapActivity.class);
-        bundle.putString(ViewMapActivity.Source, source);
-        bundle.putString(ViewMapActivity.Dest, dest);
+        Intent intent = new Intent(CalculateFareActivity.this, MapActivity.class);
+        bundle.putString(MapActivity.Source, source);
+        bundle.putString(MapActivity.Dest, dest);
         intent.putExtras(bundle);
         startActivityForResult(intent, 0);
     }

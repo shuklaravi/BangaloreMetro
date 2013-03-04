@@ -51,7 +51,6 @@
             android:name="com.vacuumhead.bangalore.MapActivity"
             android:background="@color/grey"
             android:textSize="40sp">
-             
         </activity>
         <activity
             android:name=".LaunchGPS"
