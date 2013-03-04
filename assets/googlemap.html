@@ -8,12 +8,12 @@
       #map_canvas { height: 100% }
     </style>
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBxUyLl_FmkiDlnQgyYPR0gTv8HIW4Cz6Y&sensor=true">
-	</script>    
-    
+	</script>
+
   </head>
   <body onload="initialize()">
     <div id="map_canvas" style="width:100%; height:100%"></div>
-    
+
     <script type="text/javascript">
     var bestRoute = new Array();
     var latMap = new Object();
@@ -22,38 +22,71 @@
     var stationMarker = new Array();
     var flight;
     var map;
-	
-    
+    var greenStation="http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+    var numberOfStationSelected=0;
+    var sourceStation;
+    var destinationStation;
+
+
     function reset() {
     	console.log(stationMarker[0]);
 		for(var i = stationMarker.length - 1; i >= 0 ; --i) {
 			stationMarker[i]=null;
 			stationMarker.pop();
-		}    	 		
+		}
 		if(typeof(flight)!=='undefined') {
 			flight.setVisible(false);
 		}
     }
+
+    function setListener(marker) {
+
+    	var infowindow = new google.maps.InfoWindow({
+		  content: marker.getTitle()
+		});
+
+		google.maps.event.addListener(marker, 'click', function() {
+			if(numberOfStationSelected>=2) {
+				window.alert("Please clear the map");
+			}
+			else if(numberOfStationSelected == 1) {
+				destinationStation = marker.getTitle();
+				marker.setIcon(greenStation);
+				forceSet(sourceStation, destinationStation);
+
+			} else if(numberOfStationSelected == 0) {
+				marker.setIcon(greenStation);
+				sourceStation = marker.getTitle();
+			}
+			numberOfStationSelected++;
+		  infowindow.open(map,marker);
+		});
+    }
+
     function showAllStation() {
-    	
+
     	for(var i = 0; i < stations.length; ++i) {
     		var station = getStation(stations[i]);
   		  	var marker = new google.maps.Marker({
-  			  position: station
-  		  	});  
+  			  position: station,
+  			  title: stations[i]
+  		  	});
   		  	console.log(marker);
   		    marker.setMap(map);
-  		    
+
   		    stationMarker.push(marker);
+
+  		    setListener(marker);
+
     	}
     }
     function getStation(station) {
     	var lat = latMap[station];
     	var lng = longMap[station];
-    	var stat = new google.maps.LatLng(lat, lng);        	        
+    	var stat = new google.maps.LatLng(lat, lng);
     	return stat;
     }
-    
+
       function initialize() {
     	latMap["Mahatma_Gandhi_Road"] = 12.975353;
     	latMap["Trinity_Circle"] = 12.973067;
@@ -61,43 +94,43 @@
     	latMap["Indiranagar"] = 12.978123;
     	latMap["Swami_Vivekananda_Road"] = 12.985866;
     	latMap["Baiyappanahalli"] = 12.990725;
-    	
+
     	longMap["Mahatma_Gandhi_Road"] = 77.606758;
     	longMap["Trinity_Circle"] = 77.616833;
     	longMap["Halasuru"] = 77.626134;
     	longMap["Indiranagar"] = 77.639120;
     	longMap["Swami_Vivekananda_Road"] = 77.645042;
     	longMap["Baiyappanahalli"] = 77.652459;
-    	
+
 
         var mapOptions = {
           center: new google.maps.LatLng(12.976174,77.608763),
           zoom: 14,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        
+
         map = new google.maps.Map(document.getElementById("map_canvas"),
                mapOptions);
 
         highlightTrack("Mahatma_Gandhi_Road", "Indiranagar");
         showAllStation();
-        
+
       }
-      
+
       function findRoute(from, to) {
 			visited = new Object();
 			bestRoute = new Array();
 			currRoute = new Array();
-			
+
 			visited[to] = true;
 			currRoute.push(to);
-			
-			trackDFS(to, from, to, currRoute, visited);			
+
+			trackDFS(to, from, to, currRoute, visited);
 		}
-      
+
       function highlightTrack() {
     	  var trip = getGoogleTrack();
-    	  
+
 			flight = new google.maps.Polyline({
 				  path: trip,
 				  strokeColor:"#0000FF",
@@ -106,10 +139,10 @@
 			  });
 			console.log(trip);
 			console.log(flight);
-			flight.setMap(map);		
+			flight.setMap(map);
       }
-      
-      
+
+
       function getGoogleTrack() {
     	  var track = new Array();
     	  for(var i = 0; i < bestRoute.length; ++i) {
@@ -121,31 +154,31 @@
     		  	marker.setAnimation(google.maps.Animation.BOUNCE);
     		  else
     			  marker.setAnimation(google.maps.Animation.DROP);
-    			  
+
     		  marker.setMap(map);
     		  marker.setVisible(true);
-    		  
+
     		  track.push(station);
-    	  }      	  
+    	  }
     	  return track;
       }
-      
-      
+
+
 		function forceSet(from, to)
-		{			            
+		{
 			reset();
             findRoute(from, to);
 			console.log(bestRoute);
 			highlightTrack();
 		}
-		
+
 		function trackDFS(from, to, at, currRoute, visited)
-		{			
+		{
 			var nextStationId;
 			var route;
-			
+
 			for(var i = 0; i < document.getElementsByTagName('path').length; ++i) {
-				if(document.getElementsByTagName('path')[i].hasAttribute('stationa') && 
+				if(document.getElementsByTagName('path')[i].hasAttribute('stationa') &&
 						document.getElementsByTagName('path')[i].getAttribute('stationa') == at) {
 					nextStationId = document.getElementsByTagName('path')[i].getAttribute('stationb');
 				}
@@ -156,32 +189,32 @@
 				else {
 					continue;
 				}
-				
+
 				if(visited[nextStationId] == true) {
-					
+
 					continue;
 				}
-				visited[nextStationId] = true;				
-				
+				visited[nextStationId] = true;
+
 				if(nextStationId == to) {
 					currRoute.push(nextStationId);
-					if(bestRoute.length == 0 || 
+					if(bestRoute.length == 0 ||
 							bestRoute.length > currRoute.length) {
 						bestRoute = copy(currRoute);
 					}
 					currRoute.pop();
-					
+
 					continue;
 				}
 				currRoute.push(nextStationId);
-				
+
 				trackDFS(from, to, nextStationId, currRoute, visited);
 				currRoute.pop();
 				visited[nextStationId] = false;
 			}
 			return;
 		}
-		
+
 		function copy(x) { return x.slice(0); }
     </script>
   </body>
@@ -208,7 +241,7 @@
 	<stop offset="0%" style="stop-color:#357EC7" />
 	<stop offset="100%" style="stop-color:#357EC7" /></linearGradient>
 	</defs>
-	
+
 
 	<ellipse cx="18" cy="527" rx="12" ry="12" fill="#ffffff"
 		stroke="#cc00cc" stroke-width="2" />
@@ -284,65 +317,65 @@
 	<path d="M 458 527 M 458 527 L 478 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-		
+
 		<svg class="station" onClick="callJS(this)" id="Mahatma_Gandhi_Road">
 	<ellipse cx="538" cy="527" rx="12" ry="12" fill="url(#1)"
 		stroke="#990099" stroke-width="2" />
 	<ellipse cx="538" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
-		
+
 	<path d="M 498 527 M 498 527 L 528 527" shape-rendering="crispEdges"
 		fill="none" stroke="#990099" stroke-width="4" stroke-miterlimit="10"
 		stroke-dasharray="12 12" />
-		
+
 		<svg class="station" onClick="callJS(this)" id="Trinity_Circle">
 	<ellipse cx="578" cy="527" rx="12" ry="12" fill="url(#2)"
 		stroke="#990099" stroke-width="2" />
 	<ellipse cx="578" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
-		
+
 	<path stationA="Mahatma_Gandhi_Road" stationB="Trinity_Circle" d="M 548 527 M 548 527 L 568 527" shape-rendering="crispEdges"
 		fill="none" stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
-		
+
 		<svg class="station" onClick="callJS(this)" id="Halasuru">
 	<ellipse cx="618" cy="527" rx="12" ry="12" fill="url(#2)"
 		stroke="#990099" stroke-width="2" />
 	<ellipse cx="618" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
-		
+
 	<path stationA="Trinity_Circle" stationB="Halasuru" d="M 588 527 M 588 527 L 608 527" shape-rendering="crispEdges"
 		fill="none" stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
-		
+
 		<svg class="station" onClick="callJS(this)" id="Indiranagar">
 	<ellipse cx="668" cy="527" rx="12" ry="12" fill="url(#2)"
 		stroke="#990099" stroke-width="2" />
 	<ellipse cx="668" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
-		
+
 	<path stationA="Halasuru" stationB="Indiranagar" d="M 628 527 M 628 527 L 658 527" shape-rendering="crispEdges"
 		fill="none" stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
-		
+
 		<svg class="station" onClick="callJS(this)" id="Swami_Vivekananda_Road">
 	<ellipse cx="718" cy="527" rx="12" ry="12" fill="url(#1)"
 		stroke="#990099" stroke-width="2" />
 	<ellipse cx="718" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
-		
+
 	<path stationA="Indiranagar" stationB="Swami_Vivekananda_Road" d="M 678 527 M 678 527 L 708 527" shape-rendering="crispEdges"
 		fill="none" stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
-		
+
 		<svg class="station" onClick="callJS(this)" id="Baiyappanahalli">
 	<ellipse cx="758" cy="527" rx="12" ry="12" fill="url(#2)"
 		stroke="#990099" stroke-width="2" />
 	<ellipse cx="758" cy="527" rx="5.08" ry="5.08" fill="none"
 		stroke="#990099" stroke-width="2" />
 		</svg>
-		
+
 	<path stationA="Swami_Vivekananda_Road" stationB="Baiyappanahalli" d="M 728 527 M 728 527 L 748 527" shape-rendering="crispEdges"
 		fill="none" stroke="#8D38C9" stroke-width="4" stroke-miterlimit="10" />
 	<ellipse cx="348" cy="586" rx="10" ry="11" fill="#ffffff"
@@ -732,4 +765,4 @@
 	<text x="571" y="137.75">East-West corridor Metro line</text></g>
 	<g font-size="14px" font-family="Tahoma" fill="#000000">
 	<text x="571" y="162.5">METRO RAIL PHASE 2&amp;3 PROPOSED</text></g>
-	</svg>	
+	</svg>
