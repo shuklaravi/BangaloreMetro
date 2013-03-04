@@ -82,7 +82,7 @@ public class ViewMapActivity extends Activity {
 				public void run() {
 					int fromId = StationConstants.getStationCode(from);
 					int toId = StationConstants.getStationCode(to);
-					messagePaneView.setText("Fare from " + from + " to " + to + " is\n" + 
+					messagePaneView.setText("Fare from " + from + " to " + to + "\n" + 
 					"Token Users: Rs. " + MetroMapData.getTokenFareBetweenStations
 					(fromId, toId) + " \r\nVarshik User: Rs. " + MetroMapData.getVarshikFareBetweenStations(fromId, toId));
 					clearMap.bringToFront();

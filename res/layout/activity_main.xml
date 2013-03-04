@@ -58,19 +58,6 @@
         			 android:src="@drawable/mapmain" />
              </TableRow>
 
-             <TableRow>
-
-                 <Button
-                     android:id="@+id/viewGoogleMapButton"
-                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
-                     android:layout_marginBottom="15dp"
-                     android:layout_marginLeft="20dp"
-                     android:background="@drawable/button5"
-                     android:src="@drawable/placesmain" />
-
-             </TableRow>
-
 <TableRow>
 
                   <!--             <Button

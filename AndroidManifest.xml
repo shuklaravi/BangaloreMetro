@@ -13,7 +13,6 @@
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -46,6 +45,11 @@
             android:label="@string/title_intermediate_stations"
             android:textSize="40sp"
             android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.vacuumhead.bangalore.MapActivity"
+            android:background="@color/grey"
+            android:textSize="40sp"> 
         </activity>
         <activity
             android:name=".LaunchGPS"
