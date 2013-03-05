@@ -43,14 +43,14 @@ public class MapActivity extends TabActivity {
         spec.setContent(intent1);  
         spec.setIndicator("Interactive Map");  
         tabHost.addTab(spec);
-        tabHost.getTabWidget().getChildAt(0).getLayoutParams().height = 30;
+        tabHost.getTabWidget().getChildAt(0).getLayoutParams().height = 40;
         
         
         spec = tabHost.newTabSpec("tabTwo");  
         spec.setContent(intent2);  
         spec.setIndicator("Google Map");
         tabHost.addTab(spec);
-        tabHost.getTabWidget().getChildAt(1).getLayoutParams().height = 30;
+        tabHost.getTabWidget().getChildAt(1).getLayoutParams().height = 40;
         tabHost.setCurrentTab(0);
         
         
