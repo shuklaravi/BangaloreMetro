@@ -21,12 +21,18 @@
     var stations = ["Mahatma_Gandhi_Road","Trinity_Circle","Halasuru","Indiranagar","Swami_Vivekananda_Road","Baiyappanahalli"];
     var stationMarker = new Array();
     var flight;
-    var map;
+    var map;    
     var greenStation="http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+    var redStation = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
     var numberOfStationSelected=0;
     var sourceStation;
+    var from;
+    var to;
     var destinationStation;
 
+    function clearMap() {
+		location.reload();
+    }
 
     function reset() {
     	console.log(stationMarker[0]);
@@ -47,15 +53,20 @@
 
 		google.maps.event.addListener(marker, 'click', function() {
 			if(numberOfStationSelected>=2) {
-				window.alert("Please clear the map");
+				window.androidGoogleMap.alert("Please clear the map");
 			}
 			else if(numberOfStationSelected == 1) {
 				destinationStation = marker.getTitle();
 				marker.setIcon(greenStation);
+				to = marker.getTitle();				
+				window.androidGoogleMap.getRouteDetails(from, to);
 				forceSet(sourceStation, destinationStation);
 
 			} else if(numberOfStationSelected == 0) {
 				marker.setIcon(greenStation);
+				from = marker.getTitle();
+				window.androidGoogleMap.alert(from);
+				window.androidGoogleMap.setSourceStation(marker.getTitle());
 				sourceStation = marker.getTitle();
 			}
 			numberOfStationSelected++;
@@ -73,9 +84,7 @@
   		  	});
   		  	console.log(marker);
   		    marker.setMap(map);
-
   		    stationMarker.push(marker);
-
   		    setListener(marker);
 
     	}
@@ -150,10 +159,12 @@
     		  var marker = new google.maps.Marker({
     			  position: station
     		  });
-    		  if(i == 0 || i == bestRoute.length - 1)
-    		  	marker.setAnimation(google.maps.Animation.BOUNCE);
-    		  else
-    			  marker.setAnimation(google.maps.Animation.DROP);
+    		  if(i == 0 || i == bestRoute.length - 1) {
+    			  marker.setIcon(greenStation);    			  
+    			  new google.maps.event.trigger( marker, 'click' );
+    			      			  
+    		  } 
+    		  marker.setAnimation(google.maps.Animation.DROP);  
 
     		  marker.setMap(map);
     		  marker.setVisible(true);
@@ -166,7 +177,7 @@
 
 		function forceSet(from, to)
 		{
-			reset();
+			reset();			
             findRoute(from, to);
 			console.log(bestRoute);
 			highlightTrack();

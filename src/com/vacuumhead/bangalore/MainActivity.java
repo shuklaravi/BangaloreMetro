@@ -22,6 +22,8 @@ public class MainActivity extends Activity {
 		Button exitButton1 = (Button) findViewById(R.id.applicationExitButton1);
 		Button calculateFareButton1 = (Button) findViewById(R.id.calculateFareButton1);
 		Button viewMapButton1 = (Button) findViewById(R.id.viewMapButton1);
+		Button viewAboutButton1 = (Button) findViewById(R.id.about1);
+		viewAboutButton1.setOnClickListener(mainMenuClickListener);
 		calculateFareButton1.setOnClickListener(mainMenuClickListener);
 		Button viewStation = (Button) findViewById(R.id.viewStationButton);
 		viewStation.setOnClickListener(mainMenuClickListener);
@@ -57,9 +59,10 @@ public class MainActivity extends Activity {
 				Intent intent5 = new Intent(MainActivity.this, StationActivity.class);
 				startActivity(intent5);
 				break;
-			//case R.id.applicationExitButton:
-				//finish();
-			//	break;
+			case R.id.about1:				
+				Intent intent6 = new Intent(MainActivity.this, AboutUsActivity.class);
+				startActivity(intent6);
+				break;			
 			case R.id.applicationExitButton1:
 				finish();
 				break;	
