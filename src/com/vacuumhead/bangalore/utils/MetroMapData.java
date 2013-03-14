@@ -6,6 +6,10 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Vector;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import com.vacuumhead.bangalore.constants.StationConstants;
 import com.vacuumhead.bangalore.constants.UserConstants;
 
@@ -89,7 +93,5 @@ public class MetroMapData {
 	
 		return tokenPurple[fromStation][toStation];
 	}
-	
-	
-	
+		
 }

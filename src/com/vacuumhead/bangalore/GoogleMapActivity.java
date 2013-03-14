@@ -6,6 +6,8 @@ import com.vacuumhead.bangalore.utils.MetroMapData;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -38,6 +40,9 @@ public class GoogleMapActivity extends Activity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.addJavascriptInterface(new AndroidBridge(), "androidGoogleMap");
         webView.loadUrl("file:///android_asset/googlemap.html");
+        if(!isNetworkAvailable()) {
+        	messagePaneView.setText("You need to be connected to the internet to view it on Google Maps");
+        }
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
         
@@ -57,6 +62,18 @@ public class GoogleMapActivity extends Activity {
         }
         
     }
+    
+    public boolean isNetworkAvailable() {
+		
+    	ConnectivityManager cm =
+    	        (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+    	    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+    	    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+    	        return true;
+    	    }
+    	    return false;
+	}
+	
     
     OnClickListener clearMapListener = new OnClickListener() {
 		
