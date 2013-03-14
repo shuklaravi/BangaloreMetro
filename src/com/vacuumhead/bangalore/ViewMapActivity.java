@@ -3,6 +3,8 @@ package com.vacuumhead.bangalore;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.os.Build;
+import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -40,7 +42,32 @@ public class ViewMapActivity extends Activity {
 		
 		webView.getSettings().setJavaScriptEnabled(true);
 		webView.addJavascriptInterface(new AndroidBridge(), "android");
-		webView.loadUrl("file:///android_asset/metro_map.html");
+		if(Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {			
+			webView.loadUrl("file:///android_asset/metro_map_alt.html");
+			messagePaneView.setText("Interactive map is only supported on HoneyComb and higher android versions");
+		} else {
+			webView.loadUrl("file:///android_asset/metro_map.html");
+			webView.getSettings().setBuiltInZoomControls(true);					
+			webView.setInitialScale(90);		
+			
+			clearMap = (Button) findViewById(R.id.clearSelection);
+			clearMap.setOnClickListener(clearMapListener);
+			
+			Bundle extras = getIntent().getExtras();
+	        if(extras != null) {
+				s=extras.getString(Source);
+				d=extras.getString(Dest);
+				
+				webView.setWebViewClient(new WebViewClient() {
+		        	@Override
+		        	public void onPageFinished(WebView view, String url) {
+		        		
+		        		webView.loadUrl("javascript:forceSet(\"" + s + "\",\"" + d + "\")");
+		        	}
+		        });
+			}
+		}
+		
 		
 		webView.getSettings().setBuiltInZoomControls(true);					
 		webView.setInitialScale(90);		
